@@ -20,11 +20,25 @@ package client
 
 // EnableLogExportRequest struct for EnableLogExportRequest.
 type EnableLogExportRequest struct {
-	AuthPrincipal string `json:"auth_principal"`
+	AuthPrincipal *string `json:"auth_principal,omitempty"`
 	// aws_external_id to include when assuming the IAM role specified by role_arn. Optional. A specific value may be required by the role's trust policy. Only supported for Advanced clusters on AWS. If provided for a Standard cluster, the request is rejected.
 	AwsExternalId *string `json:"aws_external_id,omitempty"`
-	// The primary or the secondary connected sources client authentication key. This is used to export logs to Azure Log Analytics.
+	// Azure client ID for the app registration used by the Logs Ingestion API.
+	AzureClientId *string `json:"azure_client_id,omitempty"`
+	// Azure client secret for the app registration used by the Logs Ingestion API.
+	AzureClientSecret *string `json:"azure_client_secret,omitempty"`
+	// Logs ingestion endpoint of the Azure Data Collection Endpoint (DCE).
+	AzureDceEndpoint *string `json:"azure_dce_endpoint,omitempty"`
+	// Immutable ID of the Azure Data Collection Rule (DCR), for example dcr-...
+	AzureDcrImmutableId *string `json:"azure_dcr_immutable_id,omitempty"`
+	// Full ARM resource ID of the Azure Data Collection Rule (DCR). Cockroach Cloud reads and updates this DCR to add streams for each configured log group.
+	AzureDcrResourceId *string `json:"azure_dcr_resource_id,omitempty"`
+	// The primary or the secondary connected sources client authentication key. This is used to export logs to Azure Log Analytics via the legacy HTTP Data Collector API. Deprecated: use azure_client_secret instead.
 	AzureSharedKey *string `json:"azure_shared_key,omitempty"`
+	// Azure tenant ID for the app registration used by the Logs Ingestion API.
+	AzureTenantId *string `json:"azure_tenant_id,omitempty"`
+	// Full ARM resource ID of the Log Analytics workspace. Cockroach Cloud creates or updates the required custom tables for each configured log group.
+	AzureWorkspaceResourceId *string `json:"azure_workspace_resource_id,omitempty"`
 	// groups is a collection of log group configurations that allows the customer to define collections of CRDB log channels that are aggregated separately at the target sink.
 	Groups *[]LogExportGroup `json:"groups,omitempty"`
 	// log_name is an identifier for the logs in the customer's log sink.
@@ -42,9 +56,8 @@ type EnableLogExportRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnableLogExportRequest(authPrincipal string, logName string, type_ LogExportType) *EnableLogExportRequest {
+func NewEnableLogExportRequest(logName string, type_ LogExportType) *EnableLogExportRequest {
 	p := EnableLogExportRequest{}
-	p.AuthPrincipal = authPrincipal
 	p.LogName = logName
 	p.Type = type_
 	return &p
@@ -58,19 +71,18 @@ func NewEnableLogExportRequestWithDefaults() *EnableLogExportRequest {
 	return &p
 }
 
-// GetAuthPrincipal returns the AuthPrincipal field value.
+// GetAuthPrincipal returns the AuthPrincipal field value if set, zero value otherwise.
 func (o *EnableLogExportRequest) GetAuthPrincipal() string {
-	if o == nil {
+	if o == nil || o.AuthPrincipal == nil {
 		var ret string
 		return ret
 	}
-
-	return o.AuthPrincipal
+	return *o.AuthPrincipal
 }
 
-// SetAuthPrincipal sets field value.
+// SetAuthPrincipal gets a reference to the given string and assigns it to the AuthPrincipal field.
 func (o *EnableLogExportRequest) SetAuthPrincipal(v string) {
-	o.AuthPrincipal = v
+	o.AuthPrincipal = &v
 }
 
 // GetAwsExternalId returns the AwsExternalId field value if set, zero value otherwise.
@@ -87,6 +99,76 @@ func (o *EnableLogExportRequest) SetAwsExternalId(v string) {
 	o.AwsExternalId = &v
 }
 
+// GetAzureClientId returns the AzureClientId field value if set, zero value otherwise.
+func (o *EnableLogExportRequest) GetAzureClientId() string {
+	if o == nil || o.AzureClientId == nil {
+		var ret string
+		return ret
+	}
+	return *o.AzureClientId
+}
+
+// SetAzureClientId gets a reference to the given string and assigns it to the AzureClientId field.
+func (o *EnableLogExportRequest) SetAzureClientId(v string) {
+	o.AzureClientId = &v
+}
+
+// GetAzureClientSecret returns the AzureClientSecret field value if set, zero value otherwise.
+func (o *EnableLogExportRequest) GetAzureClientSecret() string {
+	if o == nil || o.AzureClientSecret == nil {
+		var ret string
+		return ret
+	}
+	return *o.AzureClientSecret
+}
+
+// SetAzureClientSecret gets a reference to the given string and assigns it to the AzureClientSecret field.
+func (o *EnableLogExportRequest) SetAzureClientSecret(v string) {
+	o.AzureClientSecret = &v
+}
+
+// GetAzureDceEndpoint returns the AzureDceEndpoint field value if set, zero value otherwise.
+func (o *EnableLogExportRequest) GetAzureDceEndpoint() string {
+	if o == nil || o.AzureDceEndpoint == nil {
+		var ret string
+		return ret
+	}
+	return *o.AzureDceEndpoint
+}
+
+// SetAzureDceEndpoint gets a reference to the given string and assigns it to the AzureDceEndpoint field.
+func (o *EnableLogExportRequest) SetAzureDceEndpoint(v string) {
+	o.AzureDceEndpoint = &v
+}
+
+// GetAzureDcrImmutableId returns the AzureDcrImmutableId field value if set, zero value otherwise.
+func (o *EnableLogExportRequest) GetAzureDcrImmutableId() string {
+	if o == nil || o.AzureDcrImmutableId == nil {
+		var ret string
+		return ret
+	}
+	return *o.AzureDcrImmutableId
+}
+
+// SetAzureDcrImmutableId gets a reference to the given string and assigns it to the AzureDcrImmutableId field.
+func (o *EnableLogExportRequest) SetAzureDcrImmutableId(v string) {
+	o.AzureDcrImmutableId = &v
+}
+
+// GetAzureDcrResourceId returns the AzureDcrResourceId field value if set, zero value otherwise.
+func (o *EnableLogExportRequest) GetAzureDcrResourceId() string {
+	if o == nil || o.AzureDcrResourceId == nil {
+		var ret string
+		return ret
+	}
+	return *o.AzureDcrResourceId
+}
+
+// SetAzureDcrResourceId gets a reference to the given string and assigns it to the AzureDcrResourceId field.
+func (o *EnableLogExportRequest) SetAzureDcrResourceId(v string) {
+	o.AzureDcrResourceId = &v
+}
+
 // GetAzureSharedKey returns the AzureSharedKey field value if set, zero value otherwise.
 func (o *EnableLogExportRequest) GetAzureSharedKey() string {
 	if o == nil || o.AzureSharedKey == nil {
@@ -99,6 +181,34 @@ func (o *EnableLogExportRequest) GetAzureSharedKey() string {
 // SetAzureSharedKey gets a reference to the given string and assigns it to the AzureSharedKey field.
 func (o *EnableLogExportRequest) SetAzureSharedKey(v string) {
 	o.AzureSharedKey = &v
+}
+
+// GetAzureTenantId returns the AzureTenantId field value if set, zero value otherwise.
+func (o *EnableLogExportRequest) GetAzureTenantId() string {
+	if o == nil || o.AzureTenantId == nil {
+		var ret string
+		return ret
+	}
+	return *o.AzureTenantId
+}
+
+// SetAzureTenantId gets a reference to the given string and assigns it to the AzureTenantId field.
+func (o *EnableLogExportRequest) SetAzureTenantId(v string) {
+	o.AzureTenantId = &v
+}
+
+// GetAzureWorkspaceResourceId returns the AzureWorkspaceResourceId field value if set, zero value otherwise.
+func (o *EnableLogExportRequest) GetAzureWorkspaceResourceId() string {
+	if o == nil || o.AzureWorkspaceResourceId == nil {
+		var ret string
+		return ret
+	}
+	return *o.AzureWorkspaceResourceId
+}
+
+// SetAzureWorkspaceResourceId gets a reference to the given string and assigns it to the AzureWorkspaceResourceId field.
+func (o *EnableLogExportRequest) SetAzureWorkspaceResourceId(v string) {
+	o.AzureWorkspaceResourceId = &v
 }
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
