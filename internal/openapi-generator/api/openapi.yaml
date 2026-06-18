@@ -9237,7 +9237,7 @@ paths:
         style: form
       - description: |-
           start_time filters the response to invoices whose billing period started at or after this time (inclusive).
-          Defaults to organization creation time if omitted.
+          Must be in RFC3339 format (e.g., 2024-01-01T00:00:00Z). Defaults to organization creation time if omitted.
         explode: true
         in: query
         name: start_time
@@ -9248,7 +9248,7 @@ paths:
         style: form
       - description: |-
           end_time filters the response to invoices whose billing period ended at or before this time (exclusive).
-          Defaults to current time if omitted.
+          Must be in RFC3339 format (e.g., 2024-12-31T23:59:59Z). Defaults to current time if omitted.
         explode: true
         in: query
         name: end_time
@@ -11409,6 +11409,11 @@ components:
       - AUDIT_LOG_ACTION_SET_CLUSTER_SETTING
       - AUDIT_LOG_ACTION_EVICT_BYOC_CLUSTER
       - AUDIT_LOG_ACTION_MCP_OAUTH_CONSENT
+      - AUDIT_LOG_ACTION_ENABLE_MFA_ENFORCEMENT
+      - AUDIT_LOG_ACTION_DISABLE_MFA_ENFORCEMENT
+      - AUDIT_LOG_ACTION_RESET_USER_MFA
+      - AUDIT_LOG_ACTION_ENROLL_USER_MFA
+      - AUDIT_LOG_ACTION_REGENERATE_RECOVERY_CODES
       type: string
     AuditLogEntry:
       description: |-
@@ -11422,6 +11427,7 @@ components:
           ip_address: ip_address
         trace_id: trace_id
         user_email: user_email
+        system_actor_name: null
         created_at: 2000-01-23T04:56:07.000+00:00
         session_id: session_id
         source: null
@@ -11475,6 +11481,8 @@ components:
           type: string
         source:
           $ref: '#/components/schemas/AuditLogSource'
+        system_actor_name:
+          $ref: '#/components/schemas/SystemActorName'
         trace_id:
           description: |-
             TraceId is an ID that can be used to correlate this log entry with others
@@ -11501,6 +11509,7 @@ components:
       - AUDIT_LOG_SOURCE_UI
       - AUDIT_LOG_SOURCE_INTERNAL
       - AUDIT_LOG_SOURCE_MCP
+      - AUDIT_LOG_SOURCE_SSH_GATEWAY
       type: string
     Aws:
       example:
@@ -14356,6 +14365,7 @@ components:
             ip_address: ip_address
           trace_id: trace_id
           user_email: user_email
+          system_actor_name: null
           created_at: 2000-01-23T04:56:07.000+00:00
           session_id: session_id
           source: null
@@ -14370,6 +14380,7 @@ components:
             ip_address: ip_address
           trace_id: trace_id
           user_email: user_email
+          system_actor_name: null
           created_at: 2000-01-23T04:56:07.000+00:00
           session_id: session_id
           source: null
@@ -15292,29 +15303,38 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         user_message: user_message
         spec:
-          omitted_channels:
-          - omitted_channels
-          - omitted_channels
           aws_external_id: aws_external_id
           auth_principal: auth_principal
           log_name: log_name
           redact: true
+          azure_workspace_resource_id: azure_workspace_resource_id
           groups:
           - channels:
             - channels
             - channels
             log_name: log_name
             redact: true
+            enable_sending_queue: true
             min_level: null
           - channels:
             - channels
             - channels
             log_name: log_name
             redact: true
+            enable_sending_queue: true
             min_level: null
-          region: region
+          azure_dce_endpoint: azure_dce_endpoint
           type: null
+          azure_client_id: azure_client_id
+          omitted_channels:
+          - omitted_channels
+          - omitted_channels
+          azure_dcr_immutable_id: azure_dcr_immutable_id
+          azure_dcr_resource_id: azure_dcr_resource_id
+          region: region
+          azure_client_secret: azure_client_secret
           azure_shared_key: azure_shared_key
+          azure_tenant_id: azure_tenant_id
         status: null
       properties:
         cluster_id:
@@ -15339,29 +15359,38 @@ components:
         this data via the API and also receive it back when inspecting the
         state of their log export configuration.
       example:
-        omitted_channels:
-        - omitted_channels
-        - omitted_channels
         aws_external_id: aws_external_id
         auth_principal: auth_principal
         log_name: log_name
         redact: true
+        azure_workspace_resource_id: azure_workspace_resource_id
         groups:
         - channels:
           - channels
           - channels
           log_name: log_name
           redact: true
+          enable_sending_queue: true
           min_level: null
         - channels:
           - channels
           - channels
           log_name: log_name
           redact: true
+          enable_sending_queue: true
           min_level: null
-        region: region
+        azure_dce_endpoint: azure_dce_endpoint
         type: null
+        azure_client_id: azure_client_id
+        omitted_channels:
+        - omitted_channels
+        - omitted_channels
+        azure_dcr_immutable_id: azure_dcr_immutable_id
+        azure_dcr_resource_id: azure_dcr_resource_id
+        region: region
+        azure_client_secret: azure_client_secret
         azure_shared_key: azure_shared_key
+        azure_tenant_id: azure_tenant_id
       properties:
         auth_principal:
           description: |-
@@ -15375,10 +15404,42 @@ components:
             aws_external_id, if set, is included when assuming the IAM role. Supported for
             Advanced clusters on AWS only.
           type: string
+        azure_client_id:
+          description: Azure client ID for the app registration used by the Logs Ingestion
+            API.
+          type: string
+        azure_client_secret:
+          description: Azure client secret for the app registration used by the Logs
+            Ingestion API.
+          type: string
+        azure_dce_endpoint:
+          description: Logs ingestion endpoint of the Azure Data Collection Endpoint
+            (DCE).
+          type: string
+        azure_dcr_immutable_id:
+          description: "Immutable ID of the Azure Data Collection Rule (DCR), for\
+            \ example dcr-..."
+          type: string
+        azure_dcr_resource_id:
+          description: |-
+            Full ARM resource ID of the Azure Data Collection Rule (DCR). Cockroach
+            Cloud reads and updates this DCR to add streams for each configured log
+            group.
+          type: string
         azure_shared_key:
           description: |-
             The primary or the secondary connected sources client authentication key.
-            This is used to export logs to Azure Log Analytics.
+            This is used to export logs to Azure Log Analytics via the legacy
+            HTTP Data Collector API. Deprecated: use azure_client_secret instead.
+          type: string
+        azure_tenant_id:
+          description: Azure tenant ID for the app registration used by the Logs Ingestion
+            API.
+          type: string
+        azure_workspace_resource_id:
+          description: |-
+            Full ARM resource ID of the Log Analytics workspace. Cockroach Cloud creates
+            or updates the required custom tables for each configured log group.
           type: string
         groups:
           description: |-
@@ -15424,6 +15485,7 @@ components:
         - channels
         log_name: log_name
         redact: true
+        enable_sending_queue: true
         min_level: null
       properties:
         channels:
@@ -15433,6 +15495,11 @@ components:
           items:
             type: string
           type: array
+        enable_sending_queue:
+          description: |-
+            enable_sending_queue enables the sending queue for logs in this
+            group. Only one group can have enable_sending_queue enabled.
+          type: boolean
         log_name:
           description: "log_name is the name of the group, reflected in the log sink."
           type: string
@@ -15467,10 +15534,17 @@ components:
         along with the cloud logging platform.
 
         Currently, each cloud has a single logging platform.
+
+         - AZURE_LOG_ANALYTICS_V2: AZURE_LOG_ANALYTICS_V2 exports to Azure Monitor via the Logs Ingestion API
+        and DCR-based ingestion (OTel pipeline), replacing the deprecated
+        AZURE_LOG_ANALYTICS path that uses Fluent Bit's HTTP Data Collector API
+        (retiring 2026-09-14). V2 authenticates with a tenant/client/secret + DCR
+        endpoint and rule, whereas the legacy type uses a workspace ID + shared key.
       enum:
       - AWS_CLOUDWATCH
       - GCP_CLOUD_LOGGING
       - AZURE_LOG_ANALYTICS
+      - AZURE_LOG_ANALYTICS_V2
       type: string
     LogLevel.Type:
       description: |2-
@@ -15823,6 +15897,9 @@ components:
       description: |-
         PrivateEndpointConnectionStatus enumerates the possible statuses
         for the private endpoints connection.
+
+         - STATUS_STALE: Indicates that the endpoint was deleted outside of CockroachDB Cloud. Delete the endpoint
+        through the Cloud API or Console to manually remove the connection entry.
       enum:
       - STATUS_PENDING
       - STATUS_PENDING_ACCEPTANCE
@@ -15832,6 +15909,7 @@ components:
       - STATUS_REJECTED
       - STATUS_FAILED
       - STATUS_EXPIRED
+      - STATUS_STALE
       type: string
     PrivateEndpointConnections:
       example:
@@ -16060,7 +16138,7 @@ components:
           type: string
         s3_vpc_endpoint_id:
           description: |-
-            Preview: s3_vpc_endpoint_id is the ID of the AWS S3 VPC gateway endpoint
+            s3_vpc_endpoint_id is the ID of the AWS S3 VPC gateway endpoint
             associated with this cluster region. This can be used to configure
             S3 bucket policies that restrict access to traffic from this
             VPC endpoint. Only populated for Advanced clusters on AWS.
@@ -16922,6 +17000,13 @@ components:
         message:
           type: string
       type: object
+    SystemActorName:
+      description: |-
+        SystemActorName identifies a system process that triggered an audit log
+        entry when the action was not initiated by a human user or service account.
+      enum:
+      - SYSTEM_ACTOR_NAME_SYSTEM
+      type: string
     UpdateApiKeySpecification:
       example:
         name: new name
@@ -17463,10 +17548,42 @@ components:
             Only supported for Advanced clusters on AWS. If provided for a Standard cluster,
             the request is rejected.
           type: string
+        azure_client_id:
+          description: Azure client ID for the app registration used by the Logs Ingestion
+            API.
+          type: string
+        azure_client_secret:
+          description: Azure client secret for the app registration used by the Logs
+            Ingestion API.
+          type: string
+        azure_dce_endpoint:
+          description: Logs ingestion endpoint of the Azure Data Collection Endpoint
+            (DCE).
+          type: string
+        azure_dcr_immutable_id:
+          description: "Immutable ID of the Azure Data Collection Rule (DCR), for\
+            \ example dcr-..."
+          type: string
+        azure_dcr_resource_id:
+          description: |-
+            Full ARM resource ID of the Azure Data Collection Rule (DCR). Cockroach
+            Cloud reads and updates this DCR to add streams for each configured log
+            group.
+          type: string
         azure_shared_key:
           description: |-
             The primary or the secondary connected sources client authentication key.
-            This is used to export logs to Azure Log Analytics.
+            This is used to export logs to Azure Log Analytics via the legacy
+            HTTP Data Collector API. Deprecated: use azure_client_secret instead.
+          type: string
+        azure_tenant_id:
+          description: Azure tenant ID for the app registration used by the Logs Ingestion
+            API.
+          type: string
+        azure_workspace_resource_id:
+          description: |-
+            Full ARM resource ID of the Log Analytics workspace. Cockroach Cloud creates
+            or updates the required custom tables for each configured log group.
           type: string
         groups:
           description: |-
@@ -17502,7 +17619,6 @@ components:
         type:
           $ref: '#/components/schemas/LogExportType'
       required:
-      - auth_principal
       - log_name
       - type
       title: EnableLogExportRequest

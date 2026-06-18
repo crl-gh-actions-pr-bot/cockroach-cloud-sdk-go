@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add Azure Log Analytics V2 log export type with DCR-based ingestion and new Azure configuration fields (client ID/secret, tenant ID, DCE endpoint, DCR rule, workspace resource ID).
+- Add MFA-related audit log actions (EnableMfaEnforcement, DisableMfaEnforcement, ResetUserMfa, EnrollUserMfa, RegenerateRecoveryCodes).
+- Add `SystemActorName` model and field on `AuditLogEntry` to identify system-initiated audit log entries.
+- Add `SSH_GATEWAY` audit log source.
+- Add `STATUS_STALE` private endpoint connection status for endpoints deleted outside of CockroachDB Cloud.
+- Add `EnableSendingQueue` option to `LogExportGroup`.
 - Added automated workflow for OpenAPI spec synchronization from managed-service.
   Supports both `openapi-spec-changed` (creates/updates PRs) and `openapi-spec-merged`
   (updates PRs with exact merged commit) event types.
@@ -25,10 +31,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Breaking Change: `AuthPrincipal` in `EnableLogExportRequest` is now optional instead of required.
+- Remove Preview label from `S3VpcEndpointId` field on `Region`.
+- Update `ListInvoices` time filter descriptions to specify RFC3339 format requirement.
 - Update the OpenAPI sync workflow to request the managed-service PR author as a
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch
   instead of repository_dispatch.
+
+### Deprecated
+
+- Deprecate `AzureSharedKey` log export field in favor of Azure Logs Ingestion API fields.
 
 ## [7.1.0] - 2026-04-14
 
