@@ -106,7 +106,7 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    enableLogExportRequest := *openapiclient.NewEnableLogExportRequest("AuthPrincipal_example", "LogName_example", openapiclient.LogExportType("AWS_CLOUDWATCH")) // EnableLogExportRequest | 
+    enableLogExportRequest := *openapiclient.NewEnableLogExportRequest("LogName_example", openapiclient.LogExportType("AWS_CLOUDWATCH")) // EnableLogExportRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
