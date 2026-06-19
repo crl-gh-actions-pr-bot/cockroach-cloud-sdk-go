@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add support for Azure Log Analytics V2 log export type (`AZURE_LOG_ANALYTICS_V2`) with DCR-based ingestion, including new configuration fields for Azure app registration and Data Collection Rule.
+- Add `EnableSendingQueue` field to `LogExportGroup`.
+- Add MFA-related audit log actions (`ENABLE_MFA_ENFORCEMENT`, `DISABLE_MFA_ENFORCEMENT`, `RESET_USER_MFA`, `ENROLL_USER_MFA`, `REGENERATE_RECOVERY_CODES`).
+- Add `SystemActorName` model and field on `AuditLogEntry` to identify system-initiated actions.
+- Add `SSH_GATEWAY` audit log source.
+- Add `STALE` status to `PrivateEndpointConnectionStatus` for endpoints deleted outside of CockroachDB Cloud.
 - Added automated workflow for OpenAPI spec synchronization from managed-service.
   Supports both `openapi-spec-changed` (creates/updates PRs) and `openapi-spec-merged`
   (updates PRs with exact merged commit) event types.
@@ -25,6 +31,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Breaking Change: `AuthPrincipal` on `EnableLogExportRequest` is now optional.
+- Deprecate `AzureSharedKey` on log export models in favor of `AzureClientSecret`.
+- Remove "Preview" label from `S3VpcEndpointId` on `Region` (now generally available).
+- Update `ListInvoices` time filter descriptions to specify RFC3339 format requirement.
 - Update the OpenAPI sync workflow to request the managed-service PR author as a
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch

@@ -4,9 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthPrincipal** | **string** |  | 
+**AuthPrincipal** | Pointer to **string** |  | [optional] 
 **AwsExternalId** | Pointer to **string** | aws_external_id to include when assuming the IAM role specified by role_arn. Optional. A specific value may be required by the role&#39;s trust policy. Only supported for Advanced clusters on AWS. If provided for a Standard cluster, the request is rejected. | [optional] 
-**AzureSharedKey** | Pointer to **string** | The primary or the secondary connected sources client authentication key. This is used to export logs to Azure Log Analytics. | [optional] 
+**AzureClientId** | Pointer to **string** | Azure client ID for the app registration used by the Logs Ingestion API. | [optional] 
+**AzureClientSecret** | Pointer to **string** | Azure client secret for the app registration used by the Logs Ingestion API. | [optional] 
+**AzureDceEndpoint** | Pointer to **string** | Logs ingestion endpoint of the Azure Data Collection Endpoint (DCE). | [optional] 
+**AzureDcrImmutableId** | Pointer to **string** | Immutable ID of the Azure Data Collection Rule (DCR), for example dcr-... | [optional] 
+**AzureDcrResourceId** | Pointer to **string** | Full ARM resource ID of the Azure Data Collection Rule (DCR). Cockroach Cloud reads and updates this DCR to add streams for each configured log group. | [optional] 
+**AzureSharedKey** | Pointer to **string** | The primary or the secondary connected sources client authentication key. This is used to export logs to Azure Log Analytics via the legacy HTTP Data Collector API. Deprecated: use azure_client_secret instead. | [optional] 
+**AzureTenantId** | Pointer to **string** | Azure tenant ID for the app registration used by the Logs Ingestion API. | [optional] 
+**AzureWorkspaceResourceId** | Pointer to **string** | Full ARM resource ID of the Log Analytics workspace. Cockroach Cloud creates or updates the required custom tables for each configured log group. | [optional] 
 **Groups** | Pointer to [**[]LogExportGroup**](LogExportGroup.md) | groups is a collection of log group configurations that allows the customer to define collections of CRDB log channels that are aggregated separately at the target sink. | [optional] 
 **LogName** | **string** | log_name is an identifier for the logs in the customer&#39;s log sink. | 
 **OmittedChannels** | Pointer to **[]string** | omitted_channels is a list of channels that the user does not want to export logs for. | [optional] 
@@ -18,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewEnableLogExportRequest
 
-`func NewEnableLogExportRequest(authPrincipal string, logName string, type_ LogExportType, ) *EnableLogExportRequest`
+`func NewEnableLogExportRequest(logName string, type_ LogExportType, ) *EnableLogExportRequest`
 
 NewEnableLogExportRequest instantiates a new EnableLogExportRequest object.
 This constructor will assign default values to properties that have it defined,
@@ -57,6 +64,66 @@ GetAwsExternalId returns the AwsExternalId field if non-nil, zero value otherwis
 
 SetAwsExternalId sets AwsExternalId field to given value.
 
+### GetAzureClientId
+
+`func (o *EnableLogExportRequest) GetAzureClientId() string`
+
+GetAzureClientId returns the AzureClientId field if non-nil, zero value otherwise.
+
+### SetAzureClientId
+
+`func (o *EnableLogExportRequest) SetAzureClientId(v string)`
+
+SetAzureClientId sets AzureClientId field to given value.
+
+### GetAzureClientSecret
+
+`func (o *EnableLogExportRequest) GetAzureClientSecret() string`
+
+GetAzureClientSecret returns the AzureClientSecret field if non-nil, zero value otherwise.
+
+### SetAzureClientSecret
+
+`func (o *EnableLogExportRequest) SetAzureClientSecret(v string)`
+
+SetAzureClientSecret sets AzureClientSecret field to given value.
+
+### GetAzureDceEndpoint
+
+`func (o *EnableLogExportRequest) GetAzureDceEndpoint() string`
+
+GetAzureDceEndpoint returns the AzureDceEndpoint field if non-nil, zero value otherwise.
+
+### SetAzureDceEndpoint
+
+`func (o *EnableLogExportRequest) SetAzureDceEndpoint(v string)`
+
+SetAzureDceEndpoint sets AzureDceEndpoint field to given value.
+
+### GetAzureDcrImmutableId
+
+`func (o *EnableLogExportRequest) GetAzureDcrImmutableId() string`
+
+GetAzureDcrImmutableId returns the AzureDcrImmutableId field if non-nil, zero value otherwise.
+
+### SetAzureDcrImmutableId
+
+`func (o *EnableLogExportRequest) SetAzureDcrImmutableId(v string)`
+
+SetAzureDcrImmutableId sets AzureDcrImmutableId field to given value.
+
+### GetAzureDcrResourceId
+
+`func (o *EnableLogExportRequest) GetAzureDcrResourceId() string`
+
+GetAzureDcrResourceId returns the AzureDcrResourceId field if non-nil, zero value otherwise.
+
+### SetAzureDcrResourceId
+
+`func (o *EnableLogExportRequest) SetAzureDcrResourceId(v string)`
+
+SetAzureDcrResourceId sets AzureDcrResourceId field to given value.
+
 ### GetAzureSharedKey
 
 `func (o *EnableLogExportRequest) GetAzureSharedKey() string`
@@ -68,6 +135,30 @@ GetAzureSharedKey returns the AzureSharedKey field if non-nil, zero value otherw
 `func (o *EnableLogExportRequest) SetAzureSharedKey(v string)`
 
 SetAzureSharedKey sets AzureSharedKey field to given value.
+
+### GetAzureTenantId
+
+`func (o *EnableLogExportRequest) GetAzureTenantId() string`
+
+GetAzureTenantId returns the AzureTenantId field if non-nil, zero value otherwise.
+
+### SetAzureTenantId
+
+`func (o *EnableLogExportRequest) SetAzureTenantId(v string)`
+
+SetAzureTenantId sets AzureTenantId field to given value.
+
+### GetAzureWorkspaceResourceId
+
+`func (o *EnableLogExportRequest) GetAzureWorkspaceResourceId() string`
+
+GetAzureWorkspaceResourceId returns the AzureWorkspaceResourceId field if non-nil, zero value otherwise.
+
+### SetAzureWorkspaceResourceId
+
+`func (o *EnableLogExportRequest) SetAzureWorkspaceResourceId(v string)`
+
+SetAzureWorkspaceResourceId sets AzureWorkspaceResourceId field to given value.
 
 ### GetGroups
 
