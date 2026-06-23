@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add per-region machine type configuration for dedicated clusters via `RegionMachineSpecs` on create and update specifications, enabling heterogeneous machine types across regions.
+- Add `DiskIops`, `MachineType`, and `NumVirtualCpus` fields to the `Region` model for Advanced cluster visibility.
+- Add `SystemActorName` field to `AuditLogEntry` to identify system-initiated audit log actions.
+- Add `EnableSendingQueue` option to `LogExportGroup` for controlling the log sending queue per group.
+- Add `STALE` status to `PrivateEndpointConnectionStatus` for endpoints deleted outside of CockroachDB Cloud.
+- Add new audit log actions for MFA management (`ENABLE_MFA_ENFORCEMENT`, `DISABLE_MFA_ENFORCEMENT`, `RESET_USER_MFA`, `ENROLL_USER_MFA`, `REGENERATE_RECOVERY_CODES`) and migration assistant (`CREATE_MIGRATION_ASSISTANT`, `DELETE_MIGRATION_ASSISTANT`).
+- Add `SSH_GATEWAY` audit log source.
 - Added automated workflow for OpenAPI spec synchronization from managed-service.
   Supports both `openapi-spec-changed` (creates/updates PRs) and `openapi-spec-merged`
   (updates PRs with exact merged commit) event types.
@@ -25,6 +32,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Breaking Change: `MachineSpec` in `DedicatedHardwareCreateSpecification` is now optional (pointer type). The `NewDedicatedHardwareCreateSpecification` constructor no longer requires a `machineSpec` parameter when using the new `RegionMachineSpecs` field.
+- Update `ListInvoices` `StartTime` and `EndTime` parameter descriptions to specify RFC3339 format requirement.
+- Promote `S3VpcEndpointId` field on `Region` from preview to generally available.
 - Update the OpenAPI sync workflow to request the managed-service PR author as a
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch
