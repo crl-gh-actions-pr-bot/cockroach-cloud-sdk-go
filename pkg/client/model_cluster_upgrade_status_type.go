@@ -22,7 +22,7 @@ import (
 	"fmt"
 )
 
-// ClusterUpgradeStatusType  - FINALIZED: The cluster is running the latest available CockroachDB version, and all upgrades have been finalized.  - MAJOR_UPGRADE_RUNNING: An major version upgrade is currently in progress.  - UPGRADE_AVAILABLE: An upgrade is available. If preview builds are enabled for the parent organization, this could indicate that a preview upgrade is available.  - PENDING_FINALIZATION: An upgrade is complete, but pending finalization. Upgrades are automatically finalized after 72 hours. For more information, see https://www.cockroachlabs.com/docs/stable/upgrade-cockroach-version.html  - ROLLBACK_RUNNING: A rollback operation is currently in progress.
+// ClusterUpgradeStatusType the model 'ClusterUpgradeStatusType'.
 type ClusterUpgradeStatusType string
 
 // List of ClusterUpgradeStatus.Type.
@@ -32,6 +32,7 @@ const (
 	CLUSTERUPGRADESTATUSTYPE_UPGRADE_AVAILABLE     ClusterUpgradeStatusType = "UPGRADE_AVAILABLE"
 	CLUSTERUPGRADESTATUSTYPE_PENDING_FINALIZATION  ClusterUpgradeStatusType = "PENDING_FINALIZATION"
 	CLUSTERUPGRADESTATUSTYPE_ROLLBACK_RUNNING      ClusterUpgradeStatusType = "ROLLBACK_RUNNING"
+	CLUSTERUPGRADESTATUSTYPE_TESTING               ClusterUpgradeStatusType = "TESTING"
 )
 
 // All allowed values of ClusterUpgradeStatusType enum.
@@ -41,6 +42,7 @@ var AllowedClusterUpgradeStatusTypeEnumValues = []ClusterUpgradeStatusType{
 	"UPGRADE_AVAILABLE",
 	"PENDING_FINALIZATION",
 	"ROLLBACK_RUNNING",
+	"TESTING",
 }
 
 // NewClusterUpgradeStatusTypeFromValue returns a pointer to a valid ClusterUpgradeStatusType
