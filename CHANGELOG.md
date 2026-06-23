@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add MFA-related audit log actions: `ENABLE_MFA_ENFORCEMENT`, `DISABLE_MFA_ENFORCEMENT`, `RESET_USER_MFA`, `ENROLL_USER_MFA`, `REGENERATE_RECOVERY_CODES`.
+- Add migration assistant audit log actions: `CREATE_MIGRATION_ASSISTANT`, `DELETE_MIGRATION_ASSISTANT`.
+- Add `SSH_GATEWAY` audit log source.
+- Add `SystemActorName` model and `SystemActorName` field to `AuditLogEntry` to identify system-initiated audit log actions.
+- Add `EnableSendingQueue` field to `LogExportGroup` for controlling the log sending queue.
+- Add `STALE` status to `PrivateEndpointConnectionStatus` to indicate endpoints deleted outside of CockroachDB Cloud.
+
 - Added automated workflow for OpenAPI spec synchronization from managed-service.
   Supports both `openapi-spec-changed` (creates/updates PRs) and `openapi-spec-merged`
   (updates PRs with exact merged commit) event types.
@@ -25,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update `ListInvoices` parameter descriptions to specify RFC3339 format requirement for `start_time` and `end_time`.
+- Remove "Preview" label from `S3VpcEndpointId` field in `Region` model, marking it as generally available.
 - Update the OpenAPI sync workflow to request the managed-service PR author as a
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch
