@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add OTLP/HTTP as a new log export sink type, with `OtlpEndpoint` and `OtlpHeaders` fields on `EnableLogExportRequest` and `OtlpEndpoint` and `OtlpHeaderNames` on `LogExportClusterSpecification`.
+- Add `EnableSendingQueue` field to `LogExportGroup`.
+- Add `DELIVERY_ERROR` status to `LogExportStatus`.
+- Add MFA-related audit log actions: `ENABLE_MFA_ENFORCEMENT`, `DISABLE_MFA_ENFORCEMENT`, `RESET_USER_MFA`, `ENROLL_USER_MFA`, `REGENERATE_RECOVERY_CODES`.
+- Add `SystemActorName` enum and field on `AuditLogEntry` to identify system-initiated audit log events.
+- Add `SSH_GATEWAY` audit log source.
+- Add `STATUS_STALE` to `PrivateEndpointConnectionStatus` for endpoints deleted outside of CockroachDB Cloud.
 - Added automated workflow for OpenAPI spec synchronization from managed-service.
   Supports both `openapi-spec-changed` (creates/updates PRs) and `openapi-spec-merged`
   (updates PRs with exact merged commit) event types.
@@ -25,6 +32,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Breaking Change: `AuthPrincipal` on `EnableLogExportRequest` is now optional (no longer required in the constructor). Not needed for the new OTLP_HTTP sink type.
+- Remove "Preview" label from `S3VpcEndpointId` field on `Region` (now generally available).
+- Update `ListInvoices` `start_time` and `end_time` parameter descriptions to specify RFC3339 format requirement.
 - Update the OpenAPI sync workflow to request the managed-service PR author as a
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch

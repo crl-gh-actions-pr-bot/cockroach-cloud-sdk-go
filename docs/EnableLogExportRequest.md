@@ -4,12 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthPrincipal** | **string** |  | 
+**AuthPrincipal** | Pointer to **string** | auth_principal is used in different contexts based on integration. CloudWatch: AWS Role ARN that identifies a role that the cluster account can assume to write to CloudWatch GCP Cloud Logging: GCP Project ID that the cluster service account has permissions to write to for cloud logging. Azure Log Analytics: CustomerID or WorkspaceID Required for the sink types above. Not used for the OTLP_HTTP sink, which authenticates via otlp_headers (see otlp_endpoint / otlp_headers). | [optional] 
 **AwsExternalId** | Pointer to **string** | aws_external_id to include when assuming the IAM role specified by role_arn. Optional. A specific value may be required by the role&#39;s trust policy. Only supported for Advanced clusters on AWS. If provided for a Standard cluster, the request is rejected. | [optional] 
 **AzureSharedKey** | Pointer to **string** | The primary or the secondary connected sources client authentication key. This is used to export logs to Azure Log Analytics. | [optional] 
 **Groups** | Pointer to [**[]LogExportGroup**](LogExportGroup.md) | groups is a collection of log group configurations that allows the customer to define collections of CRDB log channels that are aggregated separately at the target sink. | [optional] 
 **LogName** | **string** | log_name is an identifier for the logs in the customer&#39;s log sink. | 
 **OmittedChannels** | Pointer to **[]string** | omitted_channels is a list of channels that the user does not want to export logs for. | [optional] 
+**OtlpEndpoint** | Pointer to **string** | otlp_endpoint is the OTLP/HTTP URL for the OTLP_HTTP sink type. Customers may provide either a base endpoint or a full /v1/logs endpoint. Required when type is OTLP_HTTP. | [optional] 
+**OtlpHeaders** | Pointer to **map[string]string** | otlp_headers are auth headers (name-&gt;value) for the OTLP_HTTP sink, e.g. {\&quot;authorization\&quot;: \&quot;Bearer ...\&quot;}. Write-only: values are stored in Vault and never returned on read. For existing OTLP_HTTP configs, omitting this field or sending an empty map preserves the stored headers; sending a non-empty map replaces them. | [optional] 
 **Redact** | Pointer to **bool** | redact allows the customer to set a default redaction policy for logs before they are exported to the target sink. If a group config omits a redact flag and this one is set to &#x60;true&#x60;, then that group will receive redacted logs. | [optional] 
 **Region** | Pointer to **string** | region allows the customer to override the destination region for all logs for a cluster. | [optional] 
 **Type** | [**LogExportType**](LogExportType.md) |  | 
@@ -18,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewEnableLogExportRequest
 
-`func NewEnableLogExportRequest(authPrincipal string, logName string, type_ LogExportType, ) *EnableLogExportRequest`
+`func NewEnableLogExportRequest(logName string, type_ LogExportType, ) *EnableLogExportRequest`
 
 NewEnableLogExportRequest instantiates a new EnableLogExportRequest object.
 This constructor will assign default values to properties that have it defined,
@@ -104,6 +106,30 @@ GetOmittedChannels returns the OmittedChannels field if non-nil, zero value othe
 `func (o *EnableLogExportRequest) SetOmittedChannels(v []string)`
 
 SetOmittedChannels sets OmittedChannels field to given value.
+
+### GetOtlpEndpoint
+
+`func (o *EnableLogExportRequest) GetOtlpEndpoint() string`
+
+GetOtlpEndpoint returns the OtlpEndpoint field if non-nil, zero value otherwise.
+
+### SetOtlpEndpoint
+
+`func (o *EnableLogExportRequest) SetOtlpEndpoint(v string)`
+
+SetOtlpEndpoint sets OtlpEndpoint field to given value.
+
+### GetOtlpHeaders
+
+`func (o *EnableLogExportRequest) GetOtlpHeaders() map[string]string`
+
+GetOtlpHeaders returns the OtlpHeaders field if non-nil, zero value otherwise.
+
+### SetOtlpHeaders
+
+`func (o *EnableLogExportRequest) SetOtlpHeaders(v map[string]string)`
+
+SetOtlpHeaders sets OtlpHeaders field to given value.
 
 ### GetRedact
 
