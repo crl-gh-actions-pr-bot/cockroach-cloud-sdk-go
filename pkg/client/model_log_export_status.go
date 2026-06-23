@@ -22,7 +22,7 @@ import (
 	"fmt"
 )
 
-// LogExportStatus LogExportStatus encodes the possible states that a configuration can be in as it is created, deployed, and disabled.
+// LogExportStatus LogExportStatus encodes the possible states that a configuration can be in as it is created, deployed, and disabled.   - DELIVERY_ERROR: DELIVERY_ERROR indicates the export pipeline is enabled and running, but the destination is rejecting or failing to receive log records (observed via the collector's send-failure self-telemetry). The cause is intentionally not distinguished here — it may be invalid credentials, a wrong endpoint, or a transient outage at the destination — so user-facing messaging stays neutral.
 type LogExportStatus string
 
 // List of LogExportStatus.
@@ -34,6 +34,7 @@ const (
 	LOGEXPORTSTATUS_ENABLING          LogExportStatus = "ENABLING"
 	LOGEXPORTSTATUS_ENABLE_FAILED     LogExportStatus = "ENABLE_FAILED"
 	LOGEXPORTSTATUS_CREDENTIALS_ERROR LogExportStatus = "CREDENTIALS_ERROR"
+	LOGEXPORTSTATUS_DELIVERY_ERROR    LogExportStatus = "DELIVERY_ERROR"
 )
 
 // All allowed values of LogExportStatus enum.
@@ -45,6 +46,7 @@ var AllowedLogExportStatusEnumValues = []LogExportStatus{
 	"ENABLING",
 	"ENABLE_FAILED",
 	"CREDENTIALS_ERROR",
+	"DELIVERY_ERROR",
 }
 
 // NewLogExportStatusFromValue returns a pointer to a valid LogExportStatus

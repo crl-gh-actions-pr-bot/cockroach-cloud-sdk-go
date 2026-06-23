@@ -30,6 +30,7 @@ const (
 	LOGEXPORTTYPE_AWS_CLOUDWATCH      LogExportType = "AWS_CLOUDWATCH"
 	LOGEXPORTTYPE_GCP_CLOUD_LOGGING   LogExportType = "GCP_CLOUD_LOGGING"
 	LOGEXPORTTYPE_AZURE_LOG_ANALYTICS LogExportType = "AZURE_LOG_ANALYTICS"
+	LOGEXPORTTYPE_OTLP_HTTP           LogExportType = "OTLP_HTTP"
 )
 
 // All allowed values of LogExportType enum.
@@ -37,6 +38,7 @@ var AllowedLogExportTypeEnumValues = []LogExportType{
 	"AWS_CLOUDWATCH",
 	"GCP_CLOUD_LOGGING",
 	"AZURE_LOG_ANALYTICS",
+	"OTLP_HTTP",
 }
 
 // NewLogExportTypeFromValue returns a pointer to a valid LogExportType
