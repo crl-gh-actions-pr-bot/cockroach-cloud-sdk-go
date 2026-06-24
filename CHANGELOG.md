@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add MFA audit log actions (ENABLE_MFA_ENFORCEMENT, DISABLE_MFA_ENFORCEMENT, RESET_USER_MFA, ENROLL_USER_MFA, REGENERATE_RECOVERY_CODES) and migration assistant actions (CREATE_MIGRATION_ASSISTANT, DELETE_MIGRATION_ASSISTANT).
+- Add SSH_GATEWAY audit log source and `SystemActorName` field to `AuditLogEntry`.
+- Add per-region machine type configuration via `RegionMachineSpecs` on `DedicatedClusterCreateSpecification` and `DedicatedClusterUpdateSpecification`.
+- Add `DiskIops`, `MachineType`, and `NumVirtualCpus` fields to `Region` model.
+- Add Azure Log Analytics V2 log export support (`AZURE_LOG_ANALYTICS_V2` type) with DCR-based ingestion fields on `LogExportClusterSpecification`.
+- Add `EnableSendingQueue` field to `LogExportGroup` model.
+- Add `STALE` value to `PrivateEndpointConnectionStatus` enum.
 - Added automated workflow for OpenAPI spec synchronization from managed-service.
   Supports both `openapi-spec-changed` (creates/updates PRs) and `openapi-spec-merged`
   (updates PRs with exact merged commit) event types.
@@ -25,10 +32,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Breaking Change: Rename all API request body types from `*Request` to `*Body` suffix (e.g., `AddEgressRuleRequest` → `AddEgressRuleBody`, `CreateSQLUserRequest` → `CreateSQLUserBody`).
+- Breaking Change: `DedicatedHardwareCreateSpecification.MachineSpec` is now optional, supporting the new per-region `RegionMachineSpecs` alternative.
+- Breaking Change: `EnableLogExport` no longer requires `AuthPrincipal` in the request body.
 - Update the OpenAPI sync workflow to request the managed-service PR author as a
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch
   instead of repository_dispatch.
+
+### Deprecated
+
+- Deprecate `AZURE_LOG_ANALYTICS` log export type in favor of `AZURE_LOG_ANALYTICS_V2`.
+- Deprecate `AzureSharedKey` field on `LogExportClusterSpecification` in favor of Azure Logs Ingestion API fields.
 
 ## [7.1.0] - 2026-04-14
 
