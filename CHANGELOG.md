@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add per-region machine type configuration via `RegionMachineSpecs` field on `DedicatedClusterCreateSpecification` and `DedicatedClusterUpdateSpecification`, enabling heterogeneous machine types across cluster regions.
+- Add `DiskIops`, `MachineType`, and `NumVirtualCpus` fields to `Region` model for per-region hardware visibility on Advanced clusters.
+- Add `EnableSendingQueue` field to `LogExportGroup` for controlling the log sending queue per group.
+- Add `STATUS_STALE` to `PrivateEndpointConnectionStatus` to indicate endpoints deleted outside CockroachDB Cloud.
+- Add `SystemActorName` field to `AuditLogEntry` model.
+- Add new audit log actions for MFA management (`ENABLE_MFA_ENFORCEMENT`, `DISABLE_MFA_ENFORCEMENT`, `RESET_USER_MFA`, `ENROLL_USER_MFA`, `REGENERATE_RECOVERY_CODES`), migration assistant (`CREATE_MIGRATION_ASSISTANT`, `DELETE_MIGRATION_ASSISTANT`), and backup configuration (`UPDATE_BACKUP_CONFIGURATION`).
+- Add `SSH_GATEWAY` audit log source.
 - Added automated workflow for OpenAPI spec synchronization from managed-service.
   Supports both `openapi-spec-changed` (creates/updates PRs) and `openapi-spec-merged`
   (updates PRs with exact merged commit) event types.
@@ -25,6 +32,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Breaking Change: Rename all `*Request` request body types to `*Body` across all API operations (e.g., `AddEgressRuleRequest` → `AddEgressRuleBody`, `CreateBlackoutWindowRequest` → `CreateBlackoutWindowBody`).
+- Breaking Change: Make `MachineSpec` optional on `DedicatedHardwareCreateSpecification` (now mutually exclusive with `RegionMachineSpecs`).
+- Update `S3VpcEndpointId` field on `Region` from preview to generally available.
+- Update invoice time filter descriptions to specify RFC3339 format requirement.
 - Update the OpenAPI sync workflow to request the managed-service PR author as a
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch
