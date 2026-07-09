@@ -22,6 +22,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added pending deploy branch management to release workflow to ensure automated
   PRs that remain open after an SDK release are retargeted to the latest pending
   deploy branch
+- Add new MFA-related audit log actions: `ENABLE_MFA_ENFORCEMENT`,
+  `DISABLE_MFA_ENFORCEMENT`, `RESET_USER_MFA`, `ENROLL_USER_MFA`,
+  `REGENERATE_RECOVERY_CODES`.
+- Add new migration assistant audit log actions: `CREATE_MIGRATION_ASSISTANT`,
+  `DELETE_MIGRATION_ASSISTANT`.
+- Add new `SSH_GATEWAY` audit log source.
+- Add `SystemActorName` field to `AuditLogEntry` to identify system-initiated
+  audit log events.
+- Add `RegionMachineSpecs` field to `DedicatedClusterCreateSpecification` and
+  `DedicatedClusterUpdateSpecification` for per-region machine type configuration.
+- Add `DiskIops`, `MachineType`, and `NumVirtualCpus` fields to `Region` model.
+- Add Azure Log Analytics V2 support with new `AZURE_LOG_ANALYTICS_V2` log export
+  type and new Azure configuration fields (`AzureClientId`, `AzureClientSecret`,
+  `AzureDceEndpoint`, `AzureDcrImmutableId`, `AzureDcrResourceId`,
+  `AzureTenantId`, `AzureWorkspaceResourceId`) on `LogExportClusterSpecification`.
+- Add `EnableSendingQueue` field to `LogExportGroup`.
+- Add `STALE` status to `PrivateEndpointConnectionStatus`.
 
 ### Changed
 
@@ -29,6 +46,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   reviewer on the generated SDK PR.
 - Updated release workflow to trigger ccloud-private CLI sync using workflow_dispatch
   instead of repository_dispatch.
+- Breaking Change: Rename all request body model types from `*Request` suffix to
+  `*Body` suffix (e.g., `AddEgressRuleRequest` is now `AddEgressRuleBody`).
+- Breaking Change: `DedicatedHardwareCreateSpecification.MachineSpec` is now
+  optional (mutually exclusive with the new `RegionMachineSpecs` field).
+- Breaking Change: `EnableLogExportBody.AuthPrincipal` is now optional.
+- Deprecate `AzureSharedKey` on `LogExportClusterSpecification` in favor of
+  `AzureClientSecret`.
+- Deprecate `AZURE_LOG_ANALYTICS` log export type in favor of
+  `AZURE_LOG_ANALYTICS_V2` (legacy path retiring 2026-09-14).
+- Mark `Region.S3VpcEndpointId` as generally available (removed Preview
+  designation).
 
 ## [7.1.0] - 2026-04-14
 
