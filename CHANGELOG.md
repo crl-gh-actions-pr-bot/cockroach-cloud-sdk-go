@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `AZURE_LOG_ANALYTICS_V2` log export type for exporting to Azure Monitor via the Logs Ingestion API and DCR-based ingestion.
+- Add Azure V2 log export configuration fields: `AzureClientId`, `AzureClientSecret`, `AzureTenantId`, `AzureDceEndpoint`, `AzureDcrImmutableId`, `AzureDcrResourceId`, and `AzureWorkspaceResourceId`.
+- Add `UPDATE_BACKUP_CONFIGURATION` audit log action.
+- Add `CLUSTER_DEVELOPER` role to private endpoint and egress private endpoint read operations.
+
+### Changed
+
+- Breaking Change: `AuthPrincipal` is no longer required on `EnableLogExportBody`; it is now optional to support the new `AZURE_LOG_ANALYTICS_V2` type which does not use it.
+
+### Deprecated
+
+- Deprecate `AZURE_LOG_ANALYTICS` log export type in favor of `AZURE_LOG_ANALYTICS_V2` (retiring 2026-09-14).
+- Deprecate `AzureSharedKey` field on log export models in favor of `AzureClientSecret`.
+
 ### Fixed
 
 - Fix the OpenAPI sync workflow's changelog generation step, which failed on large
