@@ -8011,7 +8011,7 @@
       "get": {
         "operationId": "CockroachCloud_ListAwsEndpointConnections",
         "summary": "List all AwsEndpointConnections for a cluster",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -8204,7 +8204,7 @@
       "get": {
         "operationId": "CockroachCloud_ListEgressPrivateEndpoints",
         "summary": "List egress private endpoints",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -8530,7 +8530,7 @@
       "get": {
         "operationId": "CockroachCloud_GetEgressPrivateEndpoint",
         "summary": "Get egress private endpoint",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -9504,7 +9504,7 @@
       "get": {
         "operationId": "CockroachCloud_ListPrivateEndpointConnections",
         "summary": "List all connections to a cluster's private endpoint service.",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -9800,7 +9800,7 @@
       "get": {
         "operationId": "CockroachCloud_ListPrivateEndpointServices",
         "summary": "List all PrivateEndpointServices for a cluster",
-        "description": "The internal_dns property from the regions field in the ListClusters response can be used to connect to PrivateEndpointServices.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "The internal_dns property from the regions field in the ListClusters response can be used to connect to PrivateEndpointServices.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -14707,7 +14707,8 @@
           "AUDIT_LOG_ACTION_ENROLL_USER_MFA",
           "AUDIT_LOG_ACTION_REGENERATE_RECOVERY_CODES",
           "AUDIT_LOG_ACTION_CREATE_MIGRATION_ASSISTANT",
-          "AUDIT_LOG_ACTION_DELETE_MIGRATION_ASSISTANT"
+          "AUDIT_LOG_ACTION_DELETE_MIGRATION_ASSISTANT",
+          "AUDIT_LOG_ACTION_UPDATE_BACKUP_CONFIGURATION"
         ]
       },
       "AuditLogEntry": {
@@ -15105,6 +15106,11 @@
         "description": " - NOT_SET: NOT_SET indicates a client CA cert is not set on the cluster.\nNew clusters won't have a client CA cert set.\n - IS_SET: IS_SET indicates a client CA cert is set on the cluster.\n - PENDING: PENDING indicates a client CA cert update is in flight on the cluster.\n - FAILED: FAILED indicates a client CA cert update was attempted, but failed.",
         "type": "string",
         "enum": ["NOT_SET", "IS_SET", "PENDING", "FAILED"]
+      },
+      "ClientCACertUpdateMode.Type": {
+        "description": " - REPLACE: REPLACE overwrites all existing certs with the provided cert. This\nmatches the behavior of the SetClientCACert (POST) endpoint.\n - APPEND: APPEND adds the provided cert to the existing cert bundle. This enables\nno-downtime certificate rotation: append the new cert, roll it out\nacross clients, then REPLACE with only the new cert to drop the old one.",
+        "type": "string",
+        "enum": ["REPLACE", "APPEND"]
       },
       "CloudProvider.Type": {
         "description": " - GCP: The Google Cloud Platform cloud provider.\n - AWS: The Amazon Web Services cloud provider.\n - AZURE: The Azure cloud provider.",
@@ -19098,6 +19104,9 @@
       "UpdateClientCACertBody": {
         "type": "object",
         "properties": {
+          "update_mode": {
+            "$ref": "#/components/schemas/ClientCACertUpdateMode.Type"
+          },
           "x509_pem_cert": {
             "type": "string"
           }

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `update_mode` field to `UpdateClientCACertBody` with new `ClientCACertUpdateModeType` enum (REPLACE, APPEND) to support no-downtime client CA certificate rotation.
+- Add `UPDATE_BACKUP_CONFIGURATION` audit log action.
+
+### Changed
+
+- Grant CLUSTER_DEVELOPER role access to private endpoint read operations (ListAwsEndpointConnections, ListEgressPrivateEndpoints, GetEgressPrivateEndpoint, ListPrivateEndpointConnections, ListPrivateEndpointServices).
+
 ### Fixed
 
 - Fix the OpenAPI sync workflow's changelog generation step, which failed on large

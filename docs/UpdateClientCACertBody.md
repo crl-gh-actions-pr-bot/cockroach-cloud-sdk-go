@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**UpdateMode** | Pointer to [**ClientCACertUpdateModeType**](ClientCACertUpdateModeType.md) |  | [optional] 
 **X509PemCert** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -16,6 +17,18 @@ NewUpdateClientCACertBody instantiates a new UpdateClientCACertBody object.
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed.
+
+### GetUpdateMode
+
+`func (o *UpdateClientCACertBody) GetUpdateMode() ClientCACertUpdateModeType`
+
+GetUpdateMode returns the UpdateMode field if non-nil, zero value otherwise.
+
+### SetUpdateMode
+
+`func (o *UpdateClientCACertBody) SetUpdateMode(v ClientCACertUpdateModeType)`
+
+SetUpdateMode sets UpdateMode field to given value.
 
 ### GetX509PemCert
 

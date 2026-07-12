@@ -20,7 +20,8 @@ package client
 
 // UpdateClientCACertBody struct for UpdateClientCACertBody.
 type UpdateClientCACertBody struct {
-	X509PemCert *string `json:"x509_pem_cert,omitempty"`
+	UpdateMode  *ClientCACertUpdateModeType `json:"update_mode,omitempty"`
+	X509PemCert *string                     `json:"x509_pem_cert,omitempty"`
 }
 
 // NewUpdateClientCACertBody instantiates a new UpdateClientCACertBody object.
@@ -30,6 +31,20 @@ type UpdateClientCACertBody struct {
 func NewUpdateClientCACertBody() *UpdateClientCACertBody {
 	p := UpdateClientCACertBody{}
 	return &p
+}
+
+// GetUpdateMode returns the UpdateMode field value if set, zero value otherwise.
+func (o *UpdateClientCACertBody) GetUpdateMode() ClientCACertUpdateModeType {
+	if o == nil || o.UpdateMode == nil {
+		var ret ClientCACertUpdateModeType
+		return ret
+	}
+	return *o.UpdateMode
+}
+
+// SetUpdateMode gets a reference to the given ClientCACertUpdateModeType and assigns it to the UpdateMode field.
+func (o *UpdateClientCACertBody) SetUpdateMode(v ClientCACertUpdateModeType) {
+	o.UpdateMode = &v
 }
 
 // GetX509PemCert returns the X509PemCert field value if set, zero value otherwise.
