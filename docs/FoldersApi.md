@@ -164,6 +164,8 @@ Can be used by the following roles assigned at the organization or folder scope:
 - FOLDER_MOVER
 - METRICS_VIEWER
 - CLUSTER_MONITOR
+- AUDITOR
+- DATA_ACCESS
 
 
 ### Example
@@ -241,6 +243,8 @@ Can be used by the following roles assigned at the organization, folder or clust
 - FOLDER_MOVER
 - METRICS_VIEWER
 - CLUSTER_MONITOR
+- AUDITOR
+- DATA_ACCESS
 
 
 ### Example
@@ -329,6 +333,8 @@ Can be used by the following roles assigned at the organization or folder scope:
 - FOLDER_MOVER
 - METRICS_VIEWER
 - CLUSTER_MONITOR
+- AUDITOR
+- DATA_ACCESS
 
 
 ### Example

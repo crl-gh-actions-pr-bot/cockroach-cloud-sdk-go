@@ -18,6 +18,7 @@ Get a specific invoice for an organization
 Can be used by the following roles assigned at the organization scope:
 - BILLING_COORDINATOR
 - CLUSTER_ADMIN
+- BILLING_VIEWER
 
 
 ### Example
@@ -89,6 +90,7 @@ Sort order: invoice start date ascending
 Can be used by the following roles assigned at the organization scope:
 - BILLING_COORDINATOR
 - CLUSTER_ADMIN
+- BILLING_VIEWER
 
 
 ### Example

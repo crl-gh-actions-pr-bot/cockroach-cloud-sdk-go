@@ -157,6 +157,7 @@ Get a service account by ID
 Can be used by the following roles assigned at the organization scope:
 - ORG_ADMIN
 - CLUSTER_ADMIN
+- AUDITOR
 
 
 ### Example
@@ -228,6 +229,7 @@ Sort order: Service account name
 Can be used by the following roles assigned at the organization scope:
 - ORG_ADMIN
 - CLUSTER_ADMIN
+- AUDITOR
 
 
 ### Example

@@ -22,7 +22,7 @@ import (
 	"fmt"
 )
 
-// OrganizationUserRoleType  - FOLDER_ADMIN: Preview: A folder admin role.  - FOLDER_MOVER: Preview: A folder mover role.
+// OrganizationUserRoleType  - FOLDER_ADMIN: Preview: A folder admin role.  - FOLDER_MOVER: Preview: A folder mover role.  - AUDITOR: Limited Access: An auditor role with org-wide, read-only visibility into configuration, identity, authorization, and cluster metadata.  - DATA_ACCESS: Limited Access: A data access role with full SQL and data-plane access to clusters (SQL users, grants, databases, DB Console) without cluster-management privileges.
 type OrganizationUserRoleType string
 
 // List of OrganizationUserRole.Type.
@@ -39,6 +39,8 @@ const (
 	ORGANIZATIONUSERROLETYPE_METRICS_VIEWER          OrganizationUserRoleType = "METRICS_VIEWER"
 	ORGANIZATIONUSERROLETYPE_CLUSTER_MONITOR         OrganizationUserRoleType = "CLUSTER_MONITOR"
 	ORGANIZATIONUSERROLETYPE_BILLING_VIEWER          OrganizationUserRoleType = "BILLING_VIEWER"
+	ORGANIZATIONUSERROLETYPE_AUDITOR                 OrganizationUserRoleType = "AUDITOR"
+	ORGANIZATIONUSERROLETYPE_DATA_ACCESS             OrganizationUserRoleType = "DATA_ACCESS"
 )
 
 // All allowed values of OrganizationUserRoleType enum.
@@ -55,6 +57,8 @@ var AllowedOrganizationUserRoleTypeEnumValues = []OrganizationUserRoleType{
 	"METRICS_VIEWER",
 	"CLUSTER_MONITOR",
 	"BILLING_VIEWER",
+	"AUDITOR",
+	"DATA_ACCESS",
 }
 
 // NewOrganizationUserRoleTypeFromValue returns a pointer to a valid OrganizationUserRoleType

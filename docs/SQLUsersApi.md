@@ -19,6 +19,7 @@ Create a new SQL user
 
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
+- DATA_ACCESS
 
 
 ### Example
@@ -89,6 +90,7 @@ Delete a SQL user
 
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
+- DATA_ACCESS
 
 
 ### Example
@@ -164,6 +166,7 @@ Can be used by the following roles assigned at the organization, folder or clust
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
 - CLUSTER_DEVELOPER
+- DATA_ACCESS
 
 
 ### Example
@@ -242,6 +245,7 @@ Update a SQL user's password
 
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
+- DATA_ACCESS
 
 
 ### Example

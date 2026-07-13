@@ -20,7 +20,7 @@
       "get": {
         "operationId": "CockroachCloud_GetGroups",
         "summary": "List groups",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "attributes",
@@ -221,7 +221,7 @@
       "post": {
         "operationId": "CockroachCloud_SearchGroups",
         "summary": "Search groups",
-        "description": "Similar to GetGroups however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Similar to GetGroups however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "requestBody": {
           "required": true,
           "content": {
@@ -305,7 +305,7 @@
       "put": {
         "operationId": "CockroachCloud_GetGroups2",
         "summary": "Search groups (Deprecated)",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "requestBody": {
           "required": true,
           "content": {
@@ -476,7 +476,7 @@
       "get": {
         "operationId": "CockroachCloud_GetGroup",
         "summary": "Get a group by ID",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -764,7 +764,7 @@
       "post": {
         "operationId": "CockroachCloud_SearchGroup",
         "summary": "Search a group by ID",
-        "description": "Similar to GetGroup however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Similar to GetGroup however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -858,7 +858,7 @@
       "put": {
         "operationId": "CockroachCloud_GetGroup2",
         "summary": "Search a group by ID (Deprecated)",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -1415,7 +1415,7 @@
       "get": {
         "operationId": "CockroachCloud_GetUsers",
         "summary": "List Users",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "filter",
@@ -1616,7 +1616,7 @@
       "post": {
         "operationId": "CockroachCloud_SearchUsers",
         "summary": "Search Users",
-        "description": "Similar to GetUsers however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Similar to GetUsers however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "requestBody": {
           "required": true,
           "content": {
@@ -1700,7 +1700,7 @@
       "put": {
         "operationId": "CockroachCloud_GetUsers2",
         "summary": "Search User (Deprecated)",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "requestBody": {
           "required": true,
           "content": {
@@ -1871,7 +1871,7 @@
       "get": {
         "operationId": "CockroachCloud_GetUser",
         "summary": "Get a user by ID",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -2159,7 +2159,7 @@
       "post": {
         "operationId": "CockroachCloud_SearchUser",
         "summary": "Search for a user by ID",
-        "description": "Similar to GetUser however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Similar to GetUser however search parameters are passed via the POST body. See https://www.rfc-editor.org/rfc/rfc7644.html#section-3.4.3 for more details.\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -2253,7 +2253,7 @@
       "put": {
         "operationId": "CockroachCloud_GetUser2",
         "summary": "Search for a user by ID (Deprecated)",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -2350,7 +2350,7 @@
       "get": {
         "operationId": "CockroachCloud_ListApiKeys",
         "summary": "List API Keys",
-        "description": "Sort order: created_at\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n",
+        "description": "Sort order: created_at\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "service_account_id",
@@ -2655,7 +2655,7 @@
       "get": {
         "operationId": "CockroachCloud_GetApiKey",
         "summary": "Get an API Key by ID",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -2849,7 +2849,7 @@
       "get": {
         "operationId": "CockroachCloud_ListAuditLogs",
         "summary": "List audit logs",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "starting_from",
@@ -3064,7 +3064,7 @@
       "get": {
         "operationId": "CockroachCloud_ListClusters",
         "summary": "List clusters in the organization",
-        "description": "By default, clusters are sorted alphabetically by name in ascending A to Z order. To customize sorting, use the pagination.sort_by and pagination.sort_order query parameters.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n",
+        "description": "By default, clusters are sorted alphabetically by name in ascending A to Z order. To customize sorting, use the pagination.sort_by and pagination.sort_order query parameters.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n- AUDITOR\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "show_inactive",
@@ -3488,7 +3488,7 @@
       "get": {
         "operationId": "CockroachCloud_GetCluster",
         "summary": "Get extended information about a cluster",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n- AUDITOR\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -5244,7 +5244,7 @@
       "get": {
         "operationId": "CockroachCloud_GetConnectionString",
         "summary": "Get a formatted generic connection string for a cluster",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n- AUDITOR\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -5354,7 +5354,7 @@
       "get": {
         "operationId": "CockroachCloud_ListDatabases",
         "summary": "List databases for a cluster",
-        "description": "Sort order: Database name ascending\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
+        "description": "Sort order: Database name ascending\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -5470,7 +5470,7 @@
       "patch": {
         "operationId": "CockroachCloud_EditDatabase2",
         "summary": "Update a database",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -5564,7 +5564,7 @@
       "post": {
         "operationId": "CockroachCloud_CreateDatabase",
         "summary": "Create a new database",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -5660,7 +5660,7 @@
       "delete": {
         "operationId": "CockroachCloud_DeleteDatabase",
         "summary": "Delete a database",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -5752,7 +5752,7 @@
       "patch": {
         "operationId": "CockroachCloud_EditDatabase",
         "summary": "Update a database",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -6140,7 +6140,7 @@
       "get": {
         "operationId": "CockroachCloud_GetLogExportInfo",
         "summary": "Get the Log Export configuration for a cluster",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- METRICS_VIEWER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- METRICS_VIEWER\n- AUDITOR\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -7432,7 +7432,7 @@
       "get": {
         "operationId": "CockroachCloud_ListAllowlistEntries",
         "summary": "Get the IP allowlist and propagation status for a cluster",
-        "description": "Sort order: CIDR address\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
+        "description": "Sort order: CIDR address\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -8011,7 +8011,7 @@
       "get": {
         "operationId": "CockroachCloud_ListAwsEndpointConnections",
         "summary": "List all AwsEndpointConnections for a cluster",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -8204,7 +8204,7 @@
       "get": {
         "operationId": "CockroachCloud_ListEgressPrivateEndpoints",
         "summary": "List egress private endpoints",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -8530,7 +8530,7 @@
       "get": {
         "operationId": "CockroachCloud_GetEgressPrivateEndpoint",
         "summary": "Get egress private endpoint",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -9504,7 +9504,7 @@
       "get": {
         "operationId": "CockroachCloud_ListPrivateEndpointConnections",
         "summary": "List all connections to a cluster's private endpoint service.",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -9800,7 +9800,7 @@
       "get": {
         "operationId": "CockroachCloud_ListPrivateEndpointServices",
         "summary": "List all PrivateEndpointServices for a cluster",
-        "description": "The internal_dns property from the regions field in the ListClusters response can be used to connect to PrivateEndpointServices.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n",
+        "description": "The internal_dns property from the regions field in the ListClusters response can be used to connect to PrivateEndpointServices.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -10368,7 +10368,7 @@
       "get": {
         "operationId": "CockroachCloud_ListClusterNodes",
         "summary": "List nodes for a cluster",
-        "description": "Sort order: Region name, node name\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
+        "description": "Sort order: Region name, node name\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- AUDITOR\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -10727,7 +10727,7 @@
       "get": {
         "operationId": "CockroachCloud_ListSQLUsers",
         "summary": "List SQL users for a cluster",
-        "description": "Sort order: Username\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
+        "description": "Sort order: Username\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -10843,7 +10843,7 @@
       "post": {
         "operationId": "CockroachCloud_CreateSQLUser",
         "summary": "Create a new SQL user",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -10939,7 +10939,7 @@
       "delete": {
         "operationId": "CockroachCloud_DeleteSQLUser",
         "summary": "Delete a SQL user",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -11033,7 +11033,7 @@
       "put": {
         "operationId": "CockroachCloud_UpdateSQLUserPassword",
         "summary": "Update a SQL user's password",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "cluster_id",
@@ -11426,7 +11426,7 @@
       "get": {
         "operationId": "CockroachCloud_ListFolders",
         "summary": "List folders owned by an organization",
-        "description": "Sort order: Folder name\n\nCan be used by the following roles assigned at the organization or folder scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- CLUSTER_CREATOR\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n",
+        "description": "Sort order: Folder name\n\nCan be used by the following roles assigned at the organization or folder scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- CLUSTER_CREATOR\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n- AUDITOR\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "path",
@@ -11730,7 +11730,7 @@
       "get": {
         "operationId": "CockroachCloud_GetFolder",
         "summary": "Get folder info for a folder",
-        "description": "Can be used by the following roles assigned at the organization or folder scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- CLUSTER_CREATOR\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n",
+        "description": "Can be used by the following roles assigned at the organization or folder scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- CLUSTER_CREATOR\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n- AUDITOR\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "folder_id",
@@ -11922,7 +11922,7 @@
       "get": {
         "operationId": "CockroachCloud_ListFolderContents",
         "summary": "List contents of a folder",
-        "description": "Set `folder_id` to 'root' to list root level contents.  Sort order: Folders sorted by name, followed by Clusters sorted by name.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n",
+        "description": "Set `folder_id` to 'root' to list root level contents.  Sort order: Folders sorted by name, followed by Clusters sorted by name.\n\nCan be used by the following roles assigned at the organization, folder or cluster scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- FOLDER_ADMIN\n- FOLDER_MOVER\n- METRICS_VIEWER\n- CLUSTER_MONITOR\n- AUDITOR\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "folder_id",
@@ -12046,7 +12046,7 @@
       "get": {
         "operationId": "CockroachCloud_ListInvoices",
         "summary": "List invoices for a given organization",
-        "description": "Sort order: invoice start date ascending\n\nCan be used by the following roles assigned at the organization scope:\n- BILLING_COORDINATOR\n- CLUSTER_ADMIN\n",
+        "description": "Sort order: invoice start date ascending\n\nCan be used by the following roles assigned at the organization scope:\n- BILLING_COORDINATOR\n- CLUSTER_ADMIN\n- BILLING_VIEWER\n",
         "parameters": [
           {
             "name": "status",
@@ -12151,7 +12151,7 @@
       "get": {
         "operationId": "CockroachCloud_GetInvoice",
         "summary": "Get a specific invoice for an organization",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- BILLING_COORDINATOR\n- CLUSTER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- BILLING_COORDINATOR\n- CLUSTER_ADMIN\n- BILLING_VIEWER\n",
         "parameters": [
           {
             "name": "invoice_id",
@@ -12238,7 +12238,7 @@
       "get": {
         "operationId": "CockroachCloud_ListJWTIssuers",
         "summary": "List all JWT Issuers",
-        "description": "Lists all the JWT Issuer configurations registered for the CockroachDB Cloud organization\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Lists all the JWT Issuer configurations registered for the CockroachDB Cloud organization\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "pagination.page",
@@ -12536,7 +12536,7 @@
       "get": {
         "operationId": "CockroachCloud_GetJWTIssuer",
         "summary": "Get a JWT Issuer",
-        "description": "Retrieves the JWT Issuer configuration\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n",
+        "description": "Retrieves the JWT Issuer configuration\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -12732,7 +12732,7 @@
       "get": {
         "operationId": "CockroachCloud_GetOrganizationInfo",
         "summary": "Get information about the caller's organization",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- ORG_MEMBER\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- ORG_MEMBER\n- AUDITOR\n",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -12808,7 +12808,7 @@
       "get": {
         "operationId": "CockroachCloud_ListPhysicalReplicationStreams",
         "summary": "List physical replication streams",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "primary_cluster_id",
@@ -13046,7 +13046,7 @@
       "get": {
         "operationId": "CockroachCloud_GetPhysicalReplicationStream",
         "summary": "Get a physical replication stream",
-        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n",
+        "description": "Can be used by the following roles assigned at the organization, folder or cluster scope:\n- CLUSTER_ADMIN\n- CLUSTER_OPERATOR_WRITER\n- CLUSTER_DEVELOPER\n- DATA_ACCESS\n",
         "parameters": [
           {
             "name": "id",
@@ -13241,7 +13241,7 @@
       "get": {
         "operationId": "CockroachCloud_ListRoleGrants",
         "summary": "List all RoleGrants",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- FOLDER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- FOLDER_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "pagination.page",
@@ -13351,7 +13351,7 @@
       "get": {
         "operationId": "CockroachCloud_GetAllRolesForUser",
         "summary": "Get all Role Grants for a user",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- FOLDER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- FOLDER_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "user_id",
@@ -13576,7 +13576,9 @@
                 "FOLDER_MOVER",
                 "METRICS_VIEWER",
                 "CLUSTER_MONITOR",
-                "BILLING_VIEWER"
+                "BILLING_VIEWER",
+                "AUDITOR",
+                "DATA_ACCESS"
               ]
             }
           }
@@ -13699,7 +13701,9 @@
                 "FOLDER_MOVER",
                 "METRICS_VIEWER",
                 "CLUSTER_MONITOR",
-                "BILLING_VIEWER"
+                "BILLING_VIEWER",
+                "AUDITOR",
+                "DATA_ACCESS"
               ]
             }
           }
@@ -13779,7 +13783,7 @@
       "get": {
         "operationId": "CockroachCloud_ListServiceAccounts",
         "summary": "List service accounts for an organization",
-        "description": "Sort order: Service account name\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n",
+        "description": "Sort order: Service account name\n\nCan be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "pagination.page",
@@ -14076,7 +14080,7 @@
       "get": {
         "operationId": "CockroachCloud_GetServiceAccount",
         "summary": "Get a service account by ID",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "id",
@@ -14269,7 +14273,7 @@
       "get": {
         "operationId": "CockroachCloud_GetPersonUsersByEmail",
         "summary": "Search person users by email address",
-        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- FOLDER_ADMIN\n",
+        "description": "Can be used by the following roles assigned at the organization scope:\n- ORG_ADMIN\n- CLUSTER_ADMIN\n- FOLDER_ADMIN\n- AUDITOR\n",
         "parameters": [
           {
             "name": "email",
@@ -14707,7 +14711,8 @@
           "AUDIT_LOG_ACTION_ENROLL_USER_MFA",
           "AUDIT_LOG_ACTION_REGENERATE_RECOVERY_CODES",
           "AUDIT_LOG_ACTION_CREATE_MIGRATION_ASSISTANT",
-          "AUDIT_LOG_ACTION_DELETE_MIGRATION_ASSISTANT"
+          "AUDIT_LOG_ACTION_DELETE_MIGRATION_ASSISTANT",
+          "AUDIT_LOG_ACTION_UPDATE_BACKUP_CONFIGURATION"
         ]
       },
       "AuditLogEntry": {
@@ -17657,7 +17662,7 @@
         "required": ["id", "label", "name", "created_at"]
       },
       "OrganizationUserRole.Type": {
-        "description": " - FOLDER_ADMIN: Preview: A folder admin role.\n - FOLDER_MOVER: Preview: A folder mover role.",
+        "description": " - FOLDER_ADMIN: Preview: A folder admin role.\n - FOLDER_MOVER: Preview: A folder mover role.\n - AUDITOR: Limited Access: An auditor role with org-wide, read-only visibility\ninto configuration, identity, authorization, and cluster metadata.\n - DATA_ACCESS: Limited Access: A data access role with full SQL and data-plane access\nto clusters (SQL users, grants, databases, DB Console) without\ncluster-management privileges.",
         "type": "string",
         "enum": [
           "BILLING_COORDINATOR",
@@ -17671,7 +17676,9 @@
           "FOLDER_MOVER",
           "METRICS_VIEWER",
           "CLUSTER_MONITOR",
-          "BILLING_VIEWER"
+          "BILLING_VIEWER",
+          "AUDITOR",
+          "DATA_ACCESS"
         ]
       },
       "PatchGroupBody": {

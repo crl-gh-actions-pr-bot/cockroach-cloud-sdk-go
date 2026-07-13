@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add new organization user roles: `AUDITOR` (read-only org-wide visibility into
+  configuration, identity, authorization, and cluster metadata) and `DATA_ACCESS`
+  (full SQL and data-plane access to clusters without cluster-management privileges).
+- Add `UPDATE_BACKUP_CONFIGURATION` audit log action.
+- Expand `BILLING_VIEWER` role access to invoice endpoints.
+- Expand `CLUSTER_DEVELOPER` role access to private endpoint and egress private
+  endpoint read operations.
+
 ### Fixed
 
 - Fix the OpenAPI sync workflow's changelog generation step, which failed on large

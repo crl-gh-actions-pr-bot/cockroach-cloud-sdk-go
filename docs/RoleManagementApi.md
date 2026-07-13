@@ -101,6 +101,7 @@ Can be used by the following roles assigned at the organization scope:
 - ORG_ADMIN
 - CLUSTER_ADMIN
 - FOLDER_ADMIN
+- AUDITOR
 
 
 ### Example
@@ -171,6 +172,7 @@ Can be used by the following roles assigned at the organization scope:
 - ORG_ADMIN
 - CLUSTER_ADMIN
 - FOLDER_ADMIN
+- AUDITOR
 
 
 ### Example
@@ -240,6 +242,7 @@ Can be used by the following roles assigned at the organization scope:
 - ORG_ADMIN
 - CLUSTER_ADMIN
 - FOLDER_ADMIN
+- AUDITOR
 
 
 ### Example

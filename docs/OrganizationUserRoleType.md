@@ -1,7 +1,7 @@
 # OrganizationUserRoleType
 
 ## Enum
->  - FOLDER_ADMIN: Preview: A folder admin role.  - FOLDER_MOVER: Preview: A folder mover role.
+>  - FOLDER_ADMIN: Preview: A folder admin role.  - FOLDER_MOVER: Preview: A folder mover role.  - AUDITOR: Limited Access: An auditor role with org-wide, read-only visibility into configuration, identity, authorization, and cluster metadata.  - DATA_ACCESS: Limited Access: A data access role with full SQL and data-plane access to clusters (SQL users, grants, databases, DB Console) without cluster-management privileges.
 
 * `BILLING_COORDINATOR` (value: `"BILLING_COORDINATOR"`)
 
@@ -26,6 +26,10 @@
 * `CLUSTER_MONITOR` (value: `"CLUSTER_MONITOR"`)
 
 * `BILLING_VIEWER` (value: `"BILLING_VIEWER"`)
+
+* `AUDITOR` (value: `"AUDITOR"`)
+
+* `DATA_ACCESS` (value: `"DATA_ACCESS"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

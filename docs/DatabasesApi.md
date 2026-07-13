@@ -21,6 +21,7 @@ Create a new database
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
+- DATA_ACCESS
 
 
 ### Example
@@ -92,6 +93,7 @@ Delete a database
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
+- DATA_ACCESS
 
 
 ### Example
@@ -164,6 +166,7 @@ Update a database
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
+- DATA_ACCESS
 
 
 ### Example
@@ -238,6 +241,7 @@ Update a database
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
+- DATA_ACCESS
 
 
 ### Example
@@ -312,6 +316,7 @@ Can be used by the following roles assigned at the organization, folder or clust
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
 - CLUSTER_DEVELOPER
+- DATA_ACCESS
 
 
 ### Example

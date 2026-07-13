@@ -165,6 +165,8 @@ Get egress private endpoint
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
+- CLUSTER_DEVELOPER
+- DATA_ACCESS
 
 
 ### Example
@@ -237,6 +239,8 @@ List egress private endpoints
 Can be used by the following roles assigned at the organization, folder or cluster scope:
 - CLUSTER_ADMIN
 - CLUSTER_OPERATOR_WRITER
+- CLUSTER_DEVELOPER
+- DATA_ACCESS
 
 
 ### Example
