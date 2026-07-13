@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `UPDATE_BACKUP_CONFIGURATION` audit log action.
+
+### Changed
+
+- Grant `CLUSTER_DEVELOPER` role read access to private endpoint operations (ListAwsEndpointConnections, GetEgressPrivateEndpoint, ListEgressPrivateEndpoints, ListPrivateEndpointConnections, ListPrivateEndpointServices).
+
 ### Fixed
 
 - Fix the OpenAPI sync workflow's changelog generation step, which failed on large

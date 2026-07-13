@@ -47,6 +47,7 @@ tags:
 - name: Backup/Restore
 - name: Egress Private Endpoints
 - name: Multifactor Authentication
+- name: Runtime Scanning
 paths:
   /api/scim/v2/Groups:
     get:
@@ -6098,6 +6099,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DEVELOPER
       operationId: CockroachCloud_ListAwsEndpointConnections
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -6245,6 +6247,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DEVELOPER
       operationId: CockroachCloud_ListEgressPrivateEndpoints
       parameters:
       - description: cluster_id identifies the CockroachDB Cloud cluster whose egress
@@ -6499,6 +6502,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DEVELOPER
       operationId: CockroachCloud_GetEgressPrivateEndpoint
       parameters:
       - description: cluster_id identifies the CockroachDB Cloud cluster owning the
@@ -7247,6 +7251,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DEVELOPER
       operationId: CockroachCloud_ListPrivateEndpointConnections
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -7472,6 +7477,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DEVELOPER
       operationId: CockroachCloud_ListPrivateEndpointServices
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -11450,6 +11456,7 @@ components:
       - AUDIT_LOG_ACTION_REGENERATE_RECOVERY_CODES
       - AUDIT_LOG_ACTION_CREATE_MIGRATION_ASSISTANT
       - AUDIT_LOG_ACTION_DELETE_MIGRATION_ASSISTANT
+      - AUDIT_LOG_ACTION_UPDATE_BACKUP_CONFIGURATION
       type: string
     AuditLogEntry:
       description: |-
