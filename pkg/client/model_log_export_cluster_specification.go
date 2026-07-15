@@ -32,6 +32,10 @@ type LogExportClusterSpecification struct {
 	LogName *string `json:"log_name,omitempty"`
 	// omitted_channels is a list of channels that the user does not want to export logs for.
 	OmittedChannels *[]string `json:"omitted_channels,omitempty"`
+	// otlp_endpoint is the OTLP/HTTP URL for the OTLP_HTTP sink type. Customers may provide either a base endpoint or a full /v1/logs endpoint.
+	OtlpEndpoint *string `json:"otlp_endpoint,omitempty"`
+	// otlp_header_names lists the configured OTLP auth header names; values are never returned.
+	OtlpHeaderNames *[]string `json:"otlp_header_names,omitempty"`
 	// redact controls whether logs are redacted before forwarding to customer sinks. By default they are not redacted.
 	Redact *bool `json:"redact,omitempty"`
 	// region controls whether all logs are sent to a specific region in the customer sink. By default, logs will remain their region of origin depending on the cluster node's region.
@@ -130,6 +134,34 @@ func (o *LogExportClusterSpecification) GetOmittedChannels() []string {
 // SetOmittedChannels gets a reference to the given []string and assigns it to the OmittedChannels field.
 func (o *LogExportClusterSpecification) SetOmittedChannels(v []string) {
 	o.OmittedChannels = &v
+}
+
+// GetOtlpEndpoint returns the OtlpEndpoint field value if set, zero value otherwise.
+func (o *LogExportClusterSpecification) GetOtlpEndpoint() string {
+	if o == nil || o.OtlpEndpoint == nil {
+		var ret string
+		return ret
+	}
+	return *o.OtlpEndpoint
+}
+
+// SetOtlpEndpoint gets a reference to the given string and assigns it to the OtlpEndpoint field.
+func (o *LogExportClusterSpecification) SetOtlpEndpoint(v string) {
+	o.OtlpEndpoint = &v
+}
+
+// GetOtlpHeaderNames returns the OtlpHeaderNames field value if set, zero value otherwise.
+func (o *LogExportClusterSpecification) GetOtlpHeaderNames() []string {
+	if o == nil || o.OtlpHeaderNames == nil {
+		var ret []string
+		return ret
+	}
+	return *o.OtlpHeaderNames
+}
+
+// SetOtlpHeaderNames gets a reference to the given []string and assigns it to the OtlpHeaderNames field.
+func (o *LogExportClusterSpecification) SetOtlpHeaderNames(v []string) {
+	o.OtlpHeaderNames = &v
 }
 
 // GetRedact returns the Redact field value if set, zero value otherwise.

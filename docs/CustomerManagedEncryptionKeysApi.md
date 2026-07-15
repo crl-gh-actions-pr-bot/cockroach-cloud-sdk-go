@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## EnableCMEKSpec
 
-> CMEKClusterInfo EnableCMEKSpec(ctx, clusterId).EnableCMEKSpecBody(enableCMEKSpecBody).Execute()
+> CMEKClusterInfo EnableCMEKSpec(ctx, clusterId).CMEKClusterSpecification(cMEKClusterSpecification).Execute()
 
 Enable CMEK for a cluster
 
@@ -36,11 +36,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    enableCMEKSpecBody := *openapiclient.NewEnableCMEKSpecBody([]openapiclient.CMEKRegionSpecification{*openapiclient.NewCMEKRegionSpecification()}) // EnableCMEKSpecBody | 
+    cMEKClusterSpecification := *openapiclient.NewCMEKClusterSpecification([]openapiclient.CMEKRegionSpecification{*openapiclient.NewCMEKRegionSpecification()}) // CMEKClusterSpecification | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.CustomerManagedEncryptionKeysApi.EnableCMEKSpec(context.Background(), clusterId).EnableCMEKSpecBody(enableCMEKSpecBody).Execute()
+    resp, r, err := api_client.CustomerManagedEncryptionKeysApi.EnableCMEKSpec(context.Background(), clusterId).CMEKClusterSpecification(cMEKClusterSpecification).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomerManagedEncryptionKeysApi.EnableCMEKSpec``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **enableCMEKSpecBody** | [**EnableCMEKSpecBody**](EnableCMEKSpecBody.md) |  | 
+ **cMEKClusterSpecification** | [**CMEKClusterSpecification**](CMEKClusterSpecification.md) |  | 
 
 ### Return type
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCMEKSpec
 
-> CMEKClusterInfo UpdateCMEKSpec(ctx, clusterId).UpdateCMEKSpecBody(updateCMEKSpecBody).Execute()
+> CMEKClusterInfo UpdateCMEKSpec(ctx, clusterId).CMEKClusterSpecification(cMEKClusterSpecification).Execute()
 
 Enable or update the CMEK spec for a cluster
 
@@ -176,11 +176,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    updateCMEKSpecBody := *openapiclient.NewUpdateCMEKSpecBody([]openapiclient.CMEKRegionSpecification{*openapiclient.NewCMEKRegionSpecification()}) // UpdateCMEKSpecBody | 
+    cMEKClusterSpecification := *openapiclient.NewCMEKClusterSpecification([]openapiclient.CMEKRegionSpecification{*openapiclient.NewCMEKRegionSpecification()}) // CMEKClusterSpecification | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.CustomerManagedEncryptionKeysApi.UpdateCMEKSpec(context.Background(), clusterId).UpdateCMEKSpecBody(updateCMEKSpecBody).Execute()
+    resp, r, err := api_client.CustomerManagedEncryptionKeysApi.UpdateCMEKSpec(context.Background(), clusterId).CMEKClusterSpecification(cMEKClusterSpecification).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomerManagedEncryptionKeysApi.UpdateCMEKSpec``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateCMEKSpecBody** | [**UpdateCMEKSpecBody**](UpdateCMEKSpecBody.md) |  | 
+ **cMEKClusterSpecification** | [**CMEKClusterSpecification**](CMEKClusterSpecification.md) |  | 
 
 ### Return type
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCMEKStatus
 
-> CMEKClusterInfo UpdateCMEKStatus(ctx, clusterId).UpdateCMEKStatusBody(updateCMEKStatusBody).Execute()
+> CMEKClusterInfo UpdateCMEKStatus(ctx, clusterId).UpdateCMEKStatusRequest(updateCMEKStatusRequest).Execute()
 
 Update the CMEK-related status for a cluster
 
@@ -247,11 +247,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    updateCMEKStatusBody := *openapiclient.NewUpdateCMEKStatusBody(openapiclient.CMEKCustomerAction("REVOKE")) // UpdateCMEKStatusBody | 
+    updateCMEKStatusRequest := *openapiclient.NewUpdateCMEKStatusRequest(openapiclient.CMEKCustomerAction("REVOKE")) // UpdateCMEKStatusRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.CustomerManagedEncryptionKeysApi.UpdateCMEKStatus(context.Background(), clusterId).UpdateCMEKStatusBody(updateCMEKStatusBody).Execute()
+    resp, r, err := api_client.CustomerManagedEncryptionKeysApi.UpdateCMEKStatus(context.Background(), clusterId).UpdateCMEKStatusRequest(updateCMEKStatusRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomerManagedEncryptionKeysApi.UpdateCMEKStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateCMEKStatusBody** | [**UpdateCMEKStatusBody**](UpdateCMEKStatusBody.md) |  | 
+ **updateCMEKStatusRequest** | [**UpdateCMEKStatusRequest**](UpdateCMEKStatusRequest.md) |  | 
 
 ### Return type
 

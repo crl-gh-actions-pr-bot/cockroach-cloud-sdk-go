@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## UpdateClusterDisruption
 
-> ClusterDisruptionInfo UpdateClusterDisruption(ctx, clusterId).UpdateClusterDisruptionBody(updateClusterDisruptionBody).Execute()
+> ClusterDisruptionInfo UpdateClusterDisruption(ctx, clusterId).CockroachCloudUpdateClusterDisruptionRequest(cockroachCloudUpdateClusterDisruptionRequest).Execute()
 
 Update disruption specifications for a cluster
 
@@ -103,11 +103,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | cluster_id specifies the cluster for this request.
-    updateClusterDisruptionBody := *openapiclient.NewUpdateClusterDisruptionBody() // UpdateClusterDisruptionBody | 
+    cockroachCloudUpdateClusterDisruptionRequest := *openapiclient.NewCockroachCloudUpdateClusterDisruptionRequest() // CockroachCloudUpdateClusterDisruptionRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.ClusterDisruptionApi.UpdateClusterDisruption(context.Background(), clusterId).UpdateClusterDisruptionBody(updateClusterDisruptionBody).Execute()
+    resp, r, err := api_client.ClusterDisruptionApi.UpdateClusterDisruption(context.Background(), clusterId).CockroachCloudUpdateClusterDisruptionRequest(cockroachCloudUpdateClusterDisruptionRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ClusterDisruptionApi.UpdateClusterDisruption``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateClusterDisruptionBody** | [**UpdateClusterDisruptionBody**](UpdateClusterDisruptionBody.md) |  | 
+ **cockroachCloudUpdateClusterDisruptionRequest** | [**CockroachCloudUpdateClusterDisruptionRequest**](CockroachCloudUpdateClusterDisruptionRequest.md) |  | 
 
 ### Return type
 

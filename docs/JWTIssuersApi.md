@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ## UpdateJWTIssuer
 
-> JWTIssuer UpdateJWTIssuer(ctx, id).UpdateJWTIssuerBody(updateJWTIssuerBody).Execute()
+> JWTIssuer UpdateJWTIssuer(ctx, id).UpdateJWTIssuerRequest(updateJWTIssuerRequest).Execute()
 
 Update a JWT Issuer
 
@@ -324,11 +324,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | The unique identifier of the JWT Issuer resource
-    updateJWTIssuerBody := *openapiclient.NewUpdateJWTIssuerBody() // UpdateJWTIssuerBody | 
+    updateJWTIssuerRequest := *openapiclient.NewUpdateJWTIssuerRequest() // UpdateJWTIssuerRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.JWTIssuersApi.UpdateJWTIssuer(context.Background(), id).UpdateJWTIssuerBody(updateJWTIssuerBody).Execute()
+    resp, r, err := api_client.JWTIssuersApi.UpdateJWTIssuer(context.Background(), id).UpdateJWTIssuerRequest(updateJWTIssuerRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `JWTIssuersApi.UpdateJWTIssuer``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateJWTIssuerBody** | [**UpdateJWTIssuerBody**](UpdateJWTIssuerBody.md) |  | 
+ **updateJWTIssuerRequest** | [**UpdateJWTIssuerRequest**](UpdateJWTIssuerRequest.md) |  | 
 
 ### Return type
 

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## AddPrivateEndpointConnection
 
-> PrivateEndpointConnection AddPrivateEndpointConnection(ctx, clusterId).AddPrivateEndpointConnectionBody(addPrivateEndpointConnectionBody).Execute()
+> PrivateEndpointConnection AddPrivateEndpointConnection(ctx, clusterId).AddPrivateEndpointConnectionRequest(addPrivateEndpointConnectionRequest).Execute()
 
 Add a connection to a cluster's private endpoint service.
 
@@ -43,11 +43,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | cluster_id is the id of the cluster to which the private endpoint connection will be added.
-    addPrivateEndpointConnectionBody := *openapiclient.NewAddPrivateEndpointConnectionBody("EndpointId_example") // AddPrivateEndpointConnectionBody | 
+    addPrivateEndpointConnectionRequest := *openapiclient.NewAddPrivateEndpointConnectionRequest("EndpointId_example") // AddPrivateEndpointConnectionRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.PrivateEndpointServicesApi.AddPrivateEndpointConnection(context.Background(), clusterId).AddPrivateEndpointConnectionBody(addPrivateEndpointConnectionBody).Execute()
+    resp, r, err := api_client.PrivateEndpointServicesApi.AddPrivateEndpointConnection(context.Background(), clusterId).AddPrivateEndpointConnectionRequest(addPrivateEndpointConnectionRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PrivateEndpointServicesApi.AddPrivateEndpointConnection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **addPrivateEndpointConnectionBody** | [**AddPrivateEndpointConnectionBody**](AddPrivateEndpointConnectionBody.md) |  | 
+ **addPrivateEndpointConnectionRequest** | [**AddPrivateEndpointConnectionRequest**](AddPrivateEndpointConnectionRequest.md) |  | 
 
 ### Return type
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## AddPrivateEndpointTrustedOwner
 
-> AddPrivateEndpointTrustedOwnerResponse AddPrivateEndpointTrustedOwner(ctx, clusterId).AddPrivateEndpointTrustedOwnerBody(addPrivateEndpointTrustedOwnerBody).Execute()
+> AddPrivateEndpointTrustedOwnerResponse AddPrivateEndpointTrustedOwner(ctx, clusterId).AddPrivateEndpointTrustedOwnerRequest(addPrivateEndpointTrustedOwnerRequest).Execute()
 
 Add a private endpoint trusted owner to a cluster
 
@@ -113,11 +113,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | cluster_id is the ID for the cluster.
-    addPrivateEndpointTrustedOwnerBody := *openapiclient.NewAddPrivateEndpointTrustedOwnerBody("ExternalOwnerId_example", openapiclient.PrivateEndpointTrustedOwnerType.Type("AWS_ACCOUNT_ID")) // AddPrivateEndpointTrustedOwnerBody | 
+    addPrivateEndpointTrustedOwnerRequest := *openapiclient.NewAddPrivateEndpointTrustedOwnerRequest("ExternalOwnerId_example", openapiclient.PrivateEndpointTrustedOwnerType.Type("AWS_ACCOUNT_ID")) // AddPrivateEndpointTrustedOwnerRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.PrivateEndpointServicesApi.AddPrivateEndpointTrustedOwner(context.Background(), clusterId).AddPrivateEndpointTrustedOwnerBody(addPrivateEndpointTrustedOwnerBody).Execute()
+    resp, r, err := api_client.PrivateEndpointServicesApi.AddPrivateEndpointTrustedOwner(context.Background(), clusterId).AddPrivateEndpointTrustedOwnerRequest(addPrivateEndpointTrustedOwnerRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PrivateEndpointServicesApi.AddPrivateEndpointTrustedOwner``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **addPrivateEndpointTrustedOwnerBody** | [**AddPrivateEndpointTrustedOwnerBody**](AddPrivateEndpointTrustedOwnerBody.md) |  | 
+ **addPrivateEndpointTrustedOwnerRequest** | [**AddPrivateEndpointTrustedOwnerRequest**](AddPrivateEndpointTrustedOwnerRequest.md) |  | 
 
 ### Return type
 
@@ -725,7 +725,7 @@ Name | Type | Description  | Notes
 
 ## SetAwsEndpointConnectionState
 
-> AwsEndpointConnection SetAwsEndpointConnectionState(ctx, clusterId, endpointId).SetAwsEndpointConnectionStateBody(setAwsEndpointConnectionStateBody).Execute()
+> AwsEndpointConnection SetAwsEndpointConnectionState(ctx, clusterId, endpointId).SetAwsEndpointConnectionStateRequest(setAwsEndpointConnectionStateRequest).Execute()
 
 Set the AWS Endpoint Connection state
 
@@ -752,11 +752,11 @@ import (
 func main() {
     clusterId := "clusterId_example" // string | cluster_id is the ID for the cluster.
     endpointId := "endpointId_example" // string | endpoint_id is the ID for the VPC endpoint on the customer's side.
-    setAwsEndpointConnectionStateBody := *openapiclient.NewSetAwsEndpointConnectionStateBody(openapiclient.SetAWSEndpointConnectionStatus.Type("AVAILABLE")) // SetAwsEndpointConnectionStateBody | 
+    setAwsEndpointConnectionStateRequest := *openapiclient.NewSetAwsEndpointConnectionStateRequest(openapiclient.SetAWSEndpointConnectionStatus.Type("AVAILABLE")) // SetAwsEndpointConnectionStateRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.PrivateEndpointServicesApi.SetAwsEndpointConnectionState(context.Background(), clusterId, endpointId).SetAwsEndpointConnectionStateBody(setAwsEndpointConnectionStateBody).Execute()
+    resp, r, err := api_client.PrivateEndpointServicesApi.SetAwsEndpointConnectionState(context.Background(), clusterId, endpointId).SetAwsEndpointConnectionStateRequest(setAwsEndpointConnectionStateRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PrivateEndpointServicesApi.SetAwsEndpointConnectionState``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -781,7 +781,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **setAwsEndpointConnectionStateBody** | [**SetAwsEndpointConnectionStateBody**](SetAwsEndpointConnectionStateBody.md) |  | 
+ **setAwsEndpointConnectionStateRequest** | [**SetAwsEndpointConnectionStateRequest**](SetAwsEndpointConnectionStateRequest.md) |  | 
 
 ### Return type
 

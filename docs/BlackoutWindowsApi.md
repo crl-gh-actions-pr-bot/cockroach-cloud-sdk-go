@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## CreateBlackoutWindow
 
-> BlackoutWindow CreateBlackoutWindow(ctx, clusterId).CreateBlackoutWindowBody(createBlackoutWindowBody).Execute()
+> BlackoutWindow CreateBlackoutWindow(ctx, clusterId).CreateBlackoutWindowRequest(createBlackoutWindowRequest).Execute()
 
 Create a blackout window for a cluster
 
@@ -40,11 +40,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    createBlackoutWindowBody := *openapiclient.NewCreateBlackoutWindowBody(time.Now(), time.Now()) // CreateBlackoutWindowBody | 
+    createBlackoutWindowRequest := *openapiclient.NewCreateBlackoutWindowRequest(time.Now(), time.Now()) // CreateBlackoutWindowRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.BlackoutWindowsApi.CreateBlackoutWindow(context.Background(), clusterId).CreateBlackoutWindowBody(createBlackoutWindowBody).Execute()
+    resp, r, err := api_client.BlackoutWindowsApi.CreateBlackoutWindow(context.Background(), clusterId).CreateBlackoutWindowRequest(createBlackoutWindowRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `BlackoutWindowsApi.CreateBlackoutWindow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createBlackoutWindowBody** | [**CreateBlackoutWindowBody**](CreateBlackoutWindowBody.md) |  | 
+ **createBlackoutWindowRequest** | [**CreateBlackoutWindowRequest**](CreateBlackoutWindowRequest.md) |  | 
 
 ### Return type
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ## UpdateBlackoutWindow
 
-> BlackoutWindow UpdateBlackoutWindow(ctx, clusterId, blackoutWindowId).UpdateBlackoutWindowBody(updateBlackoutWindowBody).Execute()
+> BlackoutWindow UpdateBlackoutWindow(ctx, clusterId, blackoutWindowId).UpdateBlackoutWindowRequest(updateBlackoutWindowRequest).Execute()
 
 Update a blackout window for a cluster
 
@@ -335,11 +335,11 @@ import (
 func main() {
     clusterId := "clusterId_example" // string | 
     blackoutWindowId := "blackoutWindowId_example" // string | 
-    updateBlackoutWindowBody := *openapiclient.NewUpdateBlackoutWindowBody() // UpdateBlackoutWindowBody | 
+    updateBlackoutWindowRequest := *openapiclient.NewUpdateBlackoutWindowRequest() // UpdateBlackoutWindowRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.BlackoutWindowsApi.UpdateBlackoutWindow(context.Background(), clusterId, blackoutWindowId).UpdateBlackoutWindowBody(updateBlackoutWindowBody).Execute()
+    resp, r, err := api_client.BlackoutWindowsApi.UpdateBlackoutWindow(context.Background(), clusterId, blackoutWindowId).UpdateBlackoutWindowRequest(updateBlackoutWindowRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `BlackoutWindowsApi.UpdateBlackoutWindow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateBlackoutWindowBody** | [**UpdateBlackoutWindowBody**](UpdateBlackoutWindowBody.md) |  | 
+ **updateBlackoutWindowRequest** | [**UpdateBlackoutWindowRequest**](UpdateBlackoutWindowRequest.md) |  | 
 
 ### Return type
 
