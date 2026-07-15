@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **Regions** | [**[]Region**](Region.md) |  | 
 **SqlDns** | Pointer to **string** | sql_dns is the DNS name of SQL interface of the cluster. | [optional] 
 **State** | [**ClusterStateType**](ClusterStateType.md) |  | 
+**StorageType** | Pointer to [**StorageTypeType**](StorageTypeType.md) |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
 **UpgradeStatus** | [**ClusterUpgradeStatusType**](ClusterUpgradeStatusType.md) |  | 
 
@@ -311,6 +312,18 @@ GetState returns the State field if non-nil, zero value otherwise.
 `func (o *Cluster) SetState(v ClusterStateType)`
 
 SetState sets State field to given value.
+
+### GetStorageType
+
+`func (o *Cluster) GetStorageType() StorageTypeType`
+
+GetStorageType returns the StorageType field if non-nil, zero value otherwise.
+
+### SetStorageType
+
+`func (o *Cluster) SetStorageType(v StorageTypeType)`
+
+SetStorageType sets StorageType field to given value.
 
 ### GetUpdatedAt
 

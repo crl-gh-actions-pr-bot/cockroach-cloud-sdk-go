@@ -242,6 +242,7 @@ docs/SetClientCACertBody.md
 docs/SetEgressTrafficPolicyBody.md
 docs/SetRolesForUserBody.md
 docs/Status.md
+docs/StorageTypeType.md
 docs/SystemActorName.md
 docs/UpdateApiKeySpecification.md
 docs/UpdateBackupConfigurationSpec.md
@@ -480,6 +481,7 @@ model_set_egress_traffic_policy_body.go
 model_set_roles_for_user_body.go
 model_sql_user.go
 model_status.go
+model_storage_type_type.go
 model_system_actor_name.go
 model_update_api_key_specification.go
 model_update_backup_configuration_spec.go

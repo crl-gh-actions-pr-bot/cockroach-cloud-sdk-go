@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **RegionMachineSpecs** | Pointer to [**map[string]DedicatedMachineTypeSpecification**](DedicatedMachineTypeSpecification.md) | region_machine_specs configures a machine type per region, producing a cluster whose regions may use different machine types. Keys are region codes (matching region_nodes) and values select a machine type by machine_type or num_virtual_cpus. When set, every region in region_nodes must have a corresponding entry, and hardware.machine_spec must be omitted (the two fields are mutually exclusive). hardware.storage_gib and hardware.disk_iops continue to apply cluster-wide. | [optional] 
 **RegionNodes** | **map[string]int32** | Region keys should match the cloud provider&#39;s zone code. For example, for Oregon, set region_name to \&quot;us-west2\&quot; for GCP and \&quot;us-west-2\&quot; for AWS. Values represent the node count. | 
 **RestrictEgressTraffic** | Pointer to **bool** | Preview: restrict_egress_traffic if set, results in an egress traffic policy of default-deny at creation time. | [optional] 
+**StorageType** | Pointer to [**StorageTypeType**](StorageTypeType.md) |  | [optional] 
 **SupportsClusterVirtualization** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -115,6 +116,18 @@ GetRestrictEgressTraffic returns the RestrictEgressTraffic field if non-nil, zer
 `func (o *DedicatedClusterCreateSpecification) SetRestrictEgressTraffic(v bool)`
 
 SetRestrictEgressTraffic sets RestrictEgressTraffic field to given value.
+
+### GetStorageType
+
+`func (o *DedicatedClusterCreateSpecification) GetStorageType() StorageTypeType`
+
+GetStorageType returns the StorageType field if non-nil, zero value otherwise.
+
+### SetStorageType
+
+`func (o *DedicatedClusterCreateSpecification) SetStorageType(v StorageTypeType)`
+
+SetStorageType sets StorageType field to given value.
 
 ### GetSupportsClusterVirtualization
 

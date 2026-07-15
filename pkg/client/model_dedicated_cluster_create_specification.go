@@ -31,8 +31,9 @@ type DedicatedClusterCreateSpecification struct {
 	// Region keys should match the cloud provider's zone code. For example, for Oregon, set region_name to \"us-west2\" for GCP and \"us-west-2\" for AWS. Values represent the node count.
 	RegionNodes map[string]int32 `json:"region_nodes"`
 	// Preview: restrict_egress_traffic if set, results in an egress traffic policy of default-deny at creation time.
-	RestrictEgressTraffic         *bool `json:"restrict_egress_traffic,omitempty"`
-	SupportsClusterVirtualization *bool `json:"supports_cluster_virtualization,omitempty"`
+	RestrictEgressTraffic         *bool            `json:"restrict_egress_traffic,omitempty"`
+	StorageType                   *StorageTypeType `json:"storage_type,omitempty"`
+	SupportsClusterVirtualization *bool            `json:"supports_cluster_virtualization,omitempty"`
 }
 
 // NewDedicatedClusterCreateSpecification instantiates a new DedicatedClusterCreateSpecification object.
@@ -152,6 +153,20 @@ func (o *DedicatedClusterCreateSpecification) GetRestrictEgressTraffic() bool {
 // SetRestrictEgressTraffic gets a reference to the given bool and assigns it to the RestrictEgressTraffic field.
 func (o *DedicatedClusterCreateSpecification) SetRestrictEgressTraffic(v bool) {
 	o.RestrictEgressTraffic = &v
+}
+
+// GetStorageType returns the StorageType field value if set, zero value otherwise.
+func (o *DedicatedClusterCreateSpecification) GetStorageType() StorageTypeType {
+	if o == nil || o.StorageType == nil {
+		var ret StorageTypeType
+		return ret
+	}
+	return *o.StorageType
+}
+
+// SetStorageType gets a reference to the given StorageTypeType and assigns it to the StorageType field.
+func (o *DedicatedClusterCreateSpecification) SetStorageType(v StorageTypeType) {
+	o.StorageType = &v
 }
 
 // GetSupportsClusterVirtualization returns the SupportsClusterVirtualization field value if set, zero value otherwise.

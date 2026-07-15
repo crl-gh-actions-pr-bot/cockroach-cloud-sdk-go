@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `StorageType` field to `Cluster` and `DedicatedClusterCreateSpecification` models, supporting provisioned and usage-based storage options.
+- Add `UPDATE_BACKUP_CONFIGURATION` audit log action.
+
+### Changed
+
+- Role management operations (AddUserToRole, GetAllRolesForUser, RemoveUserFromRole, SetRolesForUser) now support groups in addition to users and service accounts.
+- Grant CLUSTER_DEVELOPER role access to private endpoint read operations (ListAwsEndpointConnections, GetEgressPrivateEndpoint, ListEgressPrivateEndpoints, ListPrivateEndpointConnections, ListPrivateEndpointServices).
+
 ### Fixed
 
 - Fix the OpenAPI sync workflow's changelog generation step, which failed on large

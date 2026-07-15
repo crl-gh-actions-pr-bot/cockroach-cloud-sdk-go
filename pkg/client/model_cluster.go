@@ -52,6 +52,7 @@ type Cluster struct {
 	// sql_dns is the DNS name of SQL interface of the cluster.
 	SqlDns        *string                  `json:"sql_dns,omitempty"`
 	State         ClusterStateType         `json:"state"`
+	StorageType   *StorageTypeType         `json:"storage_type,omitempty"`
 	UpdatedAt     *time.Time               `json:"updated_at,omitempty"`
 	UpgradeStatus ClusterUpgradeStatusType `json:"upgrade_status"`
 }
@@ -404,6 +405,20 @@ func (o *Cluster) GetState() ClusterStateType {
 // SetState sets field value.
 func (o *Cluster) SetState(v ClusterStateType) {
 	o.State = v
+}
+
+// GetStorageType returns the StorageType field value if set, zero value otherwise.
+func (o *Cluster) GetStorageType() StorageTypeType {
+	if o == nil || o.StorageType == nil {
+		var ret StorageTypeType
+		return ret
+	}
+	return *o.StorageType
+}
+
+// SetStorageType gets a reference to the given StorageTypeType and assigns it to the StorageType field.
+func (o *Cluster) SetStorageType(v StorageTypeType) {
+	o.StorageType = &v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
