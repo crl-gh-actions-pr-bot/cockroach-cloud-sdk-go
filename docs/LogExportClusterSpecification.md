@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **Groups** | Pointer to [**[]LogExportGroup**](LogExportGroup.md) | groups is a collection of log group configurations to customize which CRDB channels get aggregated into different groups at the target sink. Unconfigured channels will be sent to the default locations via the settings above. | [optional] 
 **LogName** | Pointer to **string** | log_name is an identifier for the logs in the customer&#39;s log sink. | [optional] 
 **OmittedChannels** | Pointer to **[]string** | omitted_channels is a list of channels that the user does not want to export logs for. | [optional] 
+**OtlpEndpoint** | Pointer to **string** | otlp_endpoint is the OTLP/HTTP URL for the OTLP_HTTP sink type. Customers may provide either a base endpoint or a full /v1/logs endpoint. | [optional] 
+**OtlpHeaderNames** | Pointer to **[]string** | otlp_header_names lists the configured OTLP auth header names; values are never returned. | [optional] 
 **Redact** | Pointer to **bool** | redact controls whether logs are redacted before forwarding to customer sinks. By default they are not redacted. | [optional] 
 **Region** | Pointer to **string** | region controls whether all logs are sent to a specific region in the customer sink. By default, logs will remain their region of origin depending on the cluster node&#39;s region. | [optional] 
 **Type** | Pointer to [**LogExportType**](LogExportType.md) |  | [optional] 
@@ -96,6 +98,30 @@ GetOmittedChannels returns the OmittedChannels field if non-nil, zero value othe
 `func (o *LogExportClusterSpecification) SetOmittedChannels(v []string)`
 
 SetOmittedChannels sets OmittedChannels field to given value.
+
+### GetOtlpEndpoint
+
+`func (o *LogExportClusterSpecification) GetOtlpEndpoint() string`
+
+GetOtlpEndpoint returns the OtlpEndpoint field if non-nil, zero value otherwise.
+
+### SetOtlpEndpoint
+
+`func (o *LogExportClusterSpecification) SetOtlpEndpoint(v string)`
+
+SetOtlpEndpoint sets OtlpEndpoint field to given value.
+
+### GetOtlpHeaderNames
+
+`func (o *LogExportClusterSpecification) GetOtlpHeaderNames() []string`
+
+GetOtlpHeaderNames returns the OtlpHeaderNames field if non-nil, zero value otherwise.
+
+### SetOtlpHeaderNames
+
+`func (o *LogExportClusterSpecification) SetOtlpHeaderNames(v []string)`
+
+SetOtlpHeaderNames sets OtlpHeaderNames field to given value.
 
 ### GetRedact
 

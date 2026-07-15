@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## EnableCloudWatchMetricExport
 
-> CloudWatchMetricExportInfo EnableCloudWatchMetricExport(ctx, clusterId).EnableCloudWatchMetricExportBody(enableCloudWatchMetricExportBody).Execute()
+> CloudWatchMetricExportInfo EnableCloudWatchMetricExport(ctx, clusterId).EnableCloudWatchMetricExportRequest(enableCloudWatchMetricExportRequest).Execute()
 
 Create or update the CloudWatch Metric Export configuration for a cluster
 
@@ -248,11 +248,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    enableCloudWatchMetricExportBody := *openapiclient.NewEnableCloudWatchMetricExportBody("RoleArn_example") // EnableCloudWatchMetricExportBody | 
+    enableCloudWatchMetricExportRequest := *openapiclient.NewEnableCloudWatchMetricExportRequest("RoleArn_example") // EnableCloudWatchMetricExportRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.MetricExportApi.EnableCloudWatchMetricExport(context.Background(), clusterId).EnableCloudWatchMetricExportBody(enableCloudWatchMetricExportBody).Execute()
+    resp, r, err := api_client.MetricExportApi.EnableCloudWatchMetricExport(context.Background(), clusterId).EnableCloudWatchMetricExportRequest(enableCloudWatchMetricExportRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetricExportApi.EnableCloudWatchMetricExport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **enableCloudWatchMetricExportBody** | [**EnableCloudWatchMetricExportBody**](EnableCloudWatchMetricExportBody.md) |  | 
+ **enableCloudWatchMetricExportRequest** | [**EnableCloudWatchMetricExportRequest**](EnableCloudWatchMetricExportRequest.md) |  | 
 
 ### Return type
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## EnableDatadogMetricExport
 
-> DatadogMetricExportInfo EnableDatadogMetricExport(ctx, clusterId).EnableDatadogMetricExportBody(enableDatadogMetricExportBody).Execute()
+> DatadogMetricExportInfo EnableDatadogMetricExport(ctx, clusterId).EnableDatadogMetricExportRequest(enableDatadogMetricExportRequest).Execute()
 
 Create or update the Datadog Metric Export configuration for a cluster
 
@@ -319,11 +319,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    enableDatadogMetricExportBody := *openapiclient.NewEnableDatadogMetricExportBody("ApiKey_example", openapiclient.DatadogSite.Type("US1")) // EnableDatadogMetricExportBody | 
+    enableDatadogMetricExportRequest := *openapiclient.NewEnableDatadogMetricExportRequest("ApiKey_example", openapiclient.DatadogSite.Type("US1")) // EnableDatadogMetricExportRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.MetricExportApi.EnableDatadogMetricExport(context.Background(), clusterId).EnableDatadogMetricExportBody(enableDatadogMetricExportBody).Execute()
+    resp, r, err := api_client.MetricExportApi.EnableDatadogMetricExport(context.Background(), clusterId).EnableDatadogMetricExportRequest(enableDatadogMetricExportRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetricExportApi.EnableDatadogMetricExport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **enableDatadogMetricExportBody** | [**EnableDatadogMetricExportBody**](EnableDatadogMetricExportBody.md) |  | 
+ **enableDatadogMetricExportRequest** | [**EnableDatadogMetricExportRequest**](EnableDatadogMetricExportRequest.md) |  | 
 
 ### Return type
 

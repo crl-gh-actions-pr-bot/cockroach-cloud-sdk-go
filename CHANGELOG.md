@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add OTLP/HTTP log export sink type with `OtlpEndpoint` and `OtlpHeaders` configuration fields.
+- Add log export delivery health monitoring via `DeliveryStatus` and `DeliveryStatusMessage` on `LogExportClusterInfo`.
+
+### Changed
+
+- Breaking Change: Rename request body types from `*Body` back to `*Request` (e.g. `CreateSQLUserBody` to `CreateSQLUserRequest`, `EditDatabaseBody` to `UpdateDatabaseRequest`, `GetGroup2Body` to `GetGroupRequest`).
+- Breaking Change: `MachineSpec` is now required on `DedicatedHardwareCreateSpecification`. `NewDedicatedHardwareCreateSpecification` now requires a `machineSpec` argument.
+- Breaking Change: `AuthPrincipal` is no longer required for `EnableLogExport` (optional for OTLP_HTTP sink type).
+
+### Removed
+
+- Remove `RegionMachineSpecs` from dedicated cluster create and update specifications.
+- Remove `DiskIops`, `MachineType`, and `NumVirtualCpus` fields from the `Region` model.
+- Remove `CREATE_MIGRATION_ASSISTANT` and `DELETE_MIGRATION_ASSISTANT` audit log actions.
+
 ### Fixed
 
 - Fix the OpenAPI sync workflow's changelog generation step, which failed on large

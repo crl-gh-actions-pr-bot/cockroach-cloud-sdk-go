@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## CreateSQLUser
 
-> SQLUser CreateSQLUser(ctx, clusterId).CreateSQLUserBody(createSQLUserBody).Execute()
+> SQLUser CreateSQLUser(ctx, clusterId).CreateSQLUserRequest(createSQLUserRequest).Execute()
 
 Create a new SQL user
 
@@ -35,11 +35,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    createSQLUserBody := *openapiclient.NewCreateSQLUserBody("Name_example", "Password_example") // CreateSQLUserBody | 
+    createSQLUserRequest := *openapiclient.NewCreateSQLUserRequest("Name_example", "Password_example") // CreateSQLUserRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.SQLUsersApi.CreateSQLUser(context.Background(), clusterId).CreateSQLUserBody(createSQLUserBody).Execute()
+    resp, r, err := api_client.SQLUsersApi.CreateSQLUser(context.Background(), clusterId).CreateSQLUserRequest(createSQLUserRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SQLUsersApi.CreateSQLUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createSQLUserBody** | [**CreateSQLUserBody**](CreateSQLUserBody.md) |  | 
+ **createSQLUserRequest** | [**CreateSQLUserRequest**](CreateSQLUserRequest.md) |  | 
 
 ### Return type
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSQLUserPassword
 
-> SQLUser UpdateSQLUserPassword(ctx, clusterId, name).UpdateSQLUserPasswordBody(updateSQLUserPasswordBody).Execute()
+> SQLUser UpdateSQLUserPassword(ctx, clusterId, name).UpdateSQLUserPasswordRequest(updateSQLUserPasswordRequest).Execute()
 
 Update a SQL user's password
 
@@ -259,11 +259,11 @@ import (
 func main() {
     clusterId := "clusterId_example" // string | 
     name := "name_example" // string | 
-    updateSQLUserPasswordBody := *openapiclient.NewUpdateSQLUserPasswordBody("Password_example") // UpdateSQLUserPasswordBody | 
+    updateSQLUserPasswordRequest := *openapiclient.NewUpdateSQLUserPasswordRequest("Password_example") // UpdateSQLUserPasswordRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.SQLUsersApi.UpdateSQLUserPassword(context.Background(), clusterId, name).UpdateSQLUserPasswordBody(updateSQLUserPasswordBody).Execute()
+    resp, r, err := api_client.SQLUsersApi.UpdateSQLUserPassword(context.Background(), clusterId, name).UpdateSQLUserPasswordRequest(updateSQLUserPasswordRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SQLUsersApi.UpdateSQLUserPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **updateSQLUserPasswordBody** | [**UpdateSQLUserPasswordBody**](UpdateSQLUserPasswordBody.md) |  | 
+ **updateSQLUserPasswordRequest** | [**UpdateSQLUserPasswordRequest**](UpdateSQLUserPasswordRequest.md) |  | 
 
 ### Return type
 

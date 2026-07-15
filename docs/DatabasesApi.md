@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## CreateDatabase
 
-> Database CreateDatabase(ctx, clusterId).CreateDatabaseBody(createDatabaseBody).Execute()
+> Database CreateDatabase(ctx, clusterId).CreateDatabaseRequest(createDatabaseRequest).Execute()
 
 Create a new database
 
@@ -37,11 +37,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    createDatabaseBody := *openapiclient.NewCreateDatabaseBody("Name_example") // CreateDatabaseBody | 
+    createDatabaseRequest := *openapiclient.NewCreateDatabaseRequest("Name_example") // CreateDatabaseRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.DatabasesApi.CreateDatabase(context.Background(), clusterId).CreateDatabaseBody(createDatabaseBody).Execute()
+    resp, r, err := api_client.DatabasesApi.CreateDatabase(context.Background(), clusterId).CreateDatabaseRequest(createDatabaseRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DatabasesApi.CreateDatabase``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createDatabaseBody** | [**CreateDatabaseBody**](CreateDatabaseBody.md) |  | 
+ **createDatabaseRequest** | [**CreateDatabaseRequest**](CreateDatabaseRequest.md) |  | 
 
 ### Return type
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## EditDatabase
 
-> Database EditDatabase(ctx, clusterId, name).EditDatabaseBody(editDatabaseBody).Execute()
+> Database EditDatabase(ctx, clusterId, name).UpdateDatabaseRequest1(updateDatabaseRequest1).Execute()
 
 Update a database
 
@@ -181,11 +181,11 @@ import (
 func main() {
     clusterId := "clusterId_example" // string | 
     name := "name_example" // string | 
-    editDatabaseBody := *openapiclient.NewEditDatabaseBody("Name_example", "NewName_example") // EditDatabaseBody | 
+    updateDatabaseRequest1 := *openapiclient.NewUpdateDatabaseRequest1("NewName_example") // UpdateDatabaseRequest1 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.DatabasesApi.EditDatabase(context.Background(), clusterId, name).EditDatabaseBody(editDatabaseBody).Execute()
+    resp, r, err := api_client.DatabasesApi.EditDatabase(context.Background(), clusterId, name).UpdateDatabaseRequest1(updateDatabaseRequest1).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DatabasesApi.EditDatabase``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **editDatabaseBody** | [**EditDatabaseBody**](EditDatabaseBody.md) |  | 
+ **updateDatabaseRequest1** | [**UpdateDatabaseRequest1**](UpdateDatabaseRequest1.md) |  | 
 
 ### Return type
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## EditDatabase2
 
-> Database EditDatabase2(ctx, clusterId).EditDatabaseBody(editDatabaseBody).Execute()
+> Database EditDatabase2(ctx, clusterId).UpdateDatabaseRequest(updateDatabaseRequest).Execute()
 
 Update a database
 
@@ -254,11 +254,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | 
-    editDatabaseBody := *openapiclient.NewEditDatabaseBody("Name_example", "NewName_example") // EditDatabaseBody | 
+    updateDatabaseRequest := *openapiclient.NewUpdateDatabaseRequest("Name_example", "NewName_example") // UpdateDatabaseRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewClient(configuration)
-    resp, r, err := api_client.DatabasesApi.EditDatabase2(context.Background(), clusterId).EditDatabaseBody(editDatabaseBody).Execute()
+    resp, r, err := api_client.DatabasesApi.EditDatabase2(context.Background(), clusterId).UpdateDatabaseRequest(updateDatabaseRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DatabasesApi.EditDatabase2``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **editDatabaseBody** | [**EditDatabaseBody**](EditDatabaseBody.md) |  | 
+ **updateDatabaseRequest** | [**UpdateDatabaseRequest**](UpdateDatabaseRequest.md) |  | 
 
 ### Return type
 
