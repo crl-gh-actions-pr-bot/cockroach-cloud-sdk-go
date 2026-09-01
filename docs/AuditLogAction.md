@@ -222,6 +222,8 @@
 
 * `DELETE_SA_CREDENTIAL` (value: `"AUDIT_LOG_ACTION_DELETE_SA_CREDENTIAL"`)
 
+* `CREATE_AEGIS_CONNECTOR` (value: `"AUDIT_LOG_ACTION_CREATE_AEGIS_CONNECTOR"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
