@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [9.1.0] - 2026-08-26
+
+### Added
+
+- Add support for service account credential management operations (CreateServiceAccountCredential, ListServiceAccountCredentials, DeleteServiceAccountCredential) for JWT-bearer credentials.
+- Add `CREATE_SA_CREDENTIAL` and `DELETE_SA_CREDENTIAL` audit log actions.
+- Add `APPEND` update mode for client CA certificate updates, enabling no-downtime certificate rotation.
+- Add the `CLUSTER_DATA_ACCESSOR` organization user role, which grants SQL and data access to clusters without cluster-management privileges.
+- Add `ADD_DISPOSABLE_EMAIL_OVERRIDE` and `REMOVE_DISPOSABLE_EMAIL_OVERRIDE` audit log actions.
+- Add the `AUDITOR` organization user role, which grants org-wide read-only access.
+
 ## [9.0.0] - 2026-08-07
 
 ### Added

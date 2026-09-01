@@ -54,6 +54,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetGroups
       parameters:
       - explode: true
@@ -215,6 +216,7 @@ paths:
 
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_SearchGroups
       requestBody:
         content:
@@ -276,6 +278,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetGroups2
       requestBody:
         content:
@@ -398,6 +401,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetGroup
       parameters:
       - explode: false
@@ -614,6 +618,7 @@ paths:
 
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_SearchGroup
       parameters:
       - explode: false
@@ -683,6 +688,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetGroup2
       parameters:
       - explode: false
@@ -1086,6 +1092,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetUsers
       parameters:
       - explode: true
@@ -1247,6 +1254,7 @@ paths:
 
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_SearchUsers
       requestBody:
         content:
@@ -1308,6 +1316,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetUsers2
       requestBody:
         content:
@@ -1430,6 +1439,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetUser
       parameters:
       - explode: false
@@ -1646,6 +1656,7 @@ paths:
 
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_SearchUser
       parameters:
       - explode: false
@@ -1715,6 +1726,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetUser2
       parameters:
       - explode: false
@@ -1787,6 +1799,7 @@ paths:
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
         - CLUSTER_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_ListApiKeys
       parameters:
       - description: |-
@@ -2020,6 +2033,7 @@ paths:
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
         - CLUSTER_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetApiKey
       parameters:
       - description: the ID of the api key.
@@ -2158,6 +2172,7 @@ paths:
       description: |
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_ListAuditLogs
       parameters:
       - description: |-
@@ -2356,6 +2371,8 @@ paths:
         - FOLDER_MOVER
         - METRICS_VIEWER
         - CLUSTER_MONITOR
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_ListClusters
       parameters:
       - description: |-
@@ -2722,6 +2739,8 @@ paths:
         - FOLDER_MOVER
         - METRICS_VIEWER
         - CLUSTER_MONITOR
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_GetCluster
       parameters:
       - explode: false
@@ -2856,6 +2875,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_ListBackups
       parameters:
       - description: The cluster associated with the backups being retrieved.
@@ -2975,6 +2995,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetBackupConfiguration
       parameters:
       - description: The UUID of the cluster that this backup configuration belongs
@@ -3114,6 +3135,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_ListBlackoutWindows
       parameters:
       - explode: false
@@ -3362,6 +3384,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetBlackoutWindow
       parameters:
       - explode: false
@@ -3640,7 +3663,9 @@ paths:
         - CLUSTER_OPERATOR_WRITER
       operationId: CockroachCloud_UpdateClientCACert
       parameters:
-      - explode: false
+      - description: cluster_id is the ID of the cluster whose client CA cert is being
+          updated.
+        explode: false
         in: path
         name: cluster_id
         required: true
@@ -3701,7 +3726,7 @@ paths:
           curl --request PATCH \
             --url https://cockroachlabs.cloud/api/v1/clusters/{cluster_id}/client-ca-cert \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
-            --json '{"x509_pem_cert":"-----BEGIN CERTIFICATE-----..."}'
+            --json '{"update_mode":"APPEND","x509_pem_cert":"-----BEGIN CERTIFICATE-----..."}'
     post:
       description: |
         Can be used by the following roles assigned at the organization, folder or cluster scope:
@@ -3777,6 +3802,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetCMEKClusterInfo
       parameters:
       - explode: false
@@ -4053,6 +4079,8 @@ paths:
         - FOLDER_MOVER
         - METRICS_VIEWER
         - CLUSTER_MONITOR
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_GetConnectionString
       parameters:
       - explode: false
@@ -4148,6 +4176,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_ListDatabases
       parameters:
       - explode: false
@@ -4246,6 +4275,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_EditDatabase2
       parameters:
       - explode: false
@@ -4315,6 +4345,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_CreateDatabase
       parameters:
       - explode: false
@@ -4385,6 +4416,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_DeleteDatabase
       parameters:
       - explode: false
@@ -4454,6 +4486,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_EditDatabase
       parameters:
       - explode: false
@@ -4740,6 +4773,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - METRICS_VIEWER
+        - AUDITOR
       operationId: CockroachCloud_GetLogExportInfo
       parameters:
       - explode: false
@@ -4941,6 +4975,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetMaintenanceWindow
       parameters:
       - explode: false
@@ -5141,6 +5176,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - METRICS_VIEWER
+        - AUDITOR
       operationId: CockroachCloud_GetCloudWatchMetricExportInfo
       parameters:
       - explode: false
@@ -5345,6 +5381,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - METRICS_VIEWER
+        - AUDITOR
       operationId: CockroachCloud_GetDatadogMetricExportInfo
       parameters:
       - explode: false
@@ -5549,6 +5586,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - METRICS_VIEWER
+        - AUDITOR
       operationId: CockroachCloud_GetPrometheusMetricExportInfo
       parameters:
       - explode: false
@@ -5683,6 +5721,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
       operationId: CockroachCloud_ListAllowlistEntries
       parameters:
       - explode: false
@@ -6100,6 +6139,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
       operationId: CockroachCloud_ListAwsEndpointConnections
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -6248,6 +6288,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
       operationId: CockroachCloud_ListEgressPrivateEndpoints
       parameters:
       - description: cluster_id identifies the CockroachDB Cloud cluster whose egress
@@ -6503,6 +6544,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
       operationId: CockroachCloud_GetEgressPrivateEndpoint
       parameters:
       - description: cluster_id identifies the CockroachDB Cloud cluster owning the
@@ -6753,6 +6795,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_ListEgressRules
       parameters:
       - description: |-
@@ -7092,6 +7135,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetEgressRule
       parameters:
       - description: cluster_id uniquely identifies the cluster owning the egress
@@ -7252,6 +7296,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
       operationId: CockroachCloud_ListPrivateEndpointConnections
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -7478,6 +7523,7 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
       operationId: CockroachCloud_ListPrivateEndpointServices
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -7605,6 +7651,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_ListPrivateEndpointTrustedOwners
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -7819,6 +7866,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetPrivateEndpointTrustedOwner
       parameters:
       - description: cluster_id is the ID for the cluster.
@@ -7900,6 +7948,8 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_ListClusterNodes
       parameters:
       - explode: false
@@ -8007,6 +8057,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_ListRestores
       parameters:
       - description: The ID of the cluster where the restores ran or are currently
@@ -8127,6 +8178,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetRestore
       parameters:
       - description: The ID of the cluster where the restore ran or is currently running.
@@ -8266,6 +8318,8 @@ paths:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
         - CLUSTER_DEVELOPER
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_GetClusterRuntimeScanning
       parameters:
       - description: cluster_id is the ID of the cluster.
@@ -8721,6 +8775,7 @@ paths:
         Can be used by the following roles assigned at the organization, folder or cluster scope:
         - CLUSTER_ADMIN
         - CLUSTER_OPERATOR_WRITER
+        - AUDITOR
       operationId: CockroachCloud_GetClusterVersionDeferral
       parameters:
       - explode: false
@@ -8939,6 +8994,8 @@ paths:
         - FOLDER_MOVER
         - METRICS_VIEWER
         - CLUSTER_MONITOR
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_ListFolders
       parameters:
       - description: |-
@@ -9182,6 +9239,8 @@ paths:
         - FOLDER_MOVER
         - METRICS_VIEWER
         - CLUSTER_MONITOR
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_GetFolder
       parameters:
       - explode: false
@@ -9328,6 +9387,8 @@ paths:
         - FOLDER_MOVER
         - METRICS_VIEWER
         - CLUSTER_MONITOR
+        - AUDITOR
+        - CLUSTER_DATA_ACCESSOR
       operationId: CockroachCloud_ListFolderContents
       parameters:
       - explode: false
@@ -9592,6 +9653,7 @@ paths:
 
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_ListJWTIssuers
       parameters:
       - explode: true
@@ -9821,6 +9883,7 @@ paths:
 
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetJWTIssuer
       parameters:
       - description: The unique identifier of the JWT Issuer resource
@@ -9964,6 +10027,7 @@ paths:
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
         - ORG_MEMBER
+        - AUDITOR
       operationId: CockroachCloud_GetOrganizationInfo
       responses:
         "200":
@@ -10362,6 +10426,7 @@ paths:
         - ORG_ADMIN
         - CLUSTER_ADMIN
         - FOLDER_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_ListRoleGrants
       parameters:
       - explode: true
@@ -10457,6 +10522,7 @@ paths:
         - ORG_ADMIN
         - CLUSTER_ADMIN
         - FOLDER_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetAllRolesForUser
       parameters:
       - description: |-
@@ -10649,6 +10715,8 @@ paths:
           - METRICS_VIEWER
           - CLUSTER_MONITOR
           - BILLING_VIEWER
+          - AUDITOR
+          - CLUSTER_DATA_ACCESSOR
           type: string
         style: simple
       responses:
@@ -10757,6 +10825,8 @@ paths:
           - METRICS_VIEWER
           - CLUSTER_MONITOR
           - BILLING_VIEWER
+          - AUDITOR
+          - CLUSTER_DATA_ACCESSOR
           type: string
         style: simple
       responses:
@@ -10815,6 +10885,7 @@ paths:
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
         - CLUSTER_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_ListServiceAccounts
       parameters:
       - explode: true
@@ -10867,6 +10938,8 @@ paths:
 
            - FOLDER_ADMIN: Preview: A folder admin role.
            - FOLDER_MOVER: Preview: A folder mover role.
+           - AUDITOR: Limited Access: An auditor role with org-wide, read-only visibility into configuration, identity, authorization, audit logs, and cluster metadata.
+           - CLUSTER_DATA_ACCESSOR: Limited Access: A cluster data accessor role with SQL and data access to clusters (databases, SQL shell, DB Console) without cluster-management privileges.
         explode: true
         in: query
         name: roles
@@ -10886,6 +10959,8 @@ paths:
             - METRICS_VIEWER
             - CLUSTER_MONITOR
             - BILLING_VIEWER
+            - AUDITOR
+            - CLUSTER_DATA_ACCESSOR
             type: string
           type: array
         style: form
@@ -11075,6 +11150,7 @@ paths:
         Can be used by the following roles assigned at the organization scope:
         - ORG_ADMIN
         - CLUSTER_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetServiceAccount
       parameters:
       - description: The ID of the service account.
@@ -11209,6 +11285,278 @@ paths:
             --url https://cockroachlabs.cloud/api/v1/service-accounts/{id} \
             --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
             --json '{"description":"new description","name":"new name"}'
+  /api/v1/service-accounts/{service_account_id}/credentials:
+    get:
+      description: |
+        Sort order: created_at
+
+        Can be used by the following roles assigned at the organization scope:
+        - ORG_ADMIN
+        - CLUSTER_ADMIN
+        - AUDITOR
+      operationId: CockroachCloud_ListServiceAccountCredentials
+      parameters:
+      - description: The ID of the service account whose credentials to list.
+        explode: false
+        in: path
+        name: service_account_id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: pagination.page
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pagination.limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pagination.as_of_time
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: |2-
+           - ASC: Sort in ascending order. This is the default unless otherwise specified.
+           - DESC: Sort in descending order.
+        explode: true
+        in: query
+        name: pagination.sort_order
+        required: false
+        schema:
+          enum:
+          - ASC
+          - DESC
+          type: string
+        style: form
+      - description: |-
+          Optional filter by credential status. Defaults to returning all
+          credentials, active and disabled.
+
+           - ACTIVE: Only active (not disabled) credentials.
+           - DISABLED: Only disabled credentials.
+        explode: true
+        in: query
+        name: status_filter
+        required: false
+        schema:
+          enum:
+          - ACTIVE
+          - DISABLED
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListServiceAccountCredentialsResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when a request field is invalid.
+        "401":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the token bearer cannot be authenticated.
+        "403":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema: {}
+          description: Server error
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: An unexpected error response.
+      summary: List a service account's OAuth credentials
+      tags:
+      - Service Accounts
+      x-badges:
+      - color: red
+        label: LIMITED ACCESS
+      x-codeSamples:
+      - lang: Shell + Curl
+        source: |-
+          curl --request GET \
+            --url 'https://cockroachlabs.cloud/api/v1/service-accounts/{service_account_id}/credentials?pagination.page=SOME_STRING_VALUE&pagination.limit=SOME_INTEGER_VALUE&pagination.as_of_time=SOME_STRING_VALUE&pagination.sort_order=SOME_STRING_VALUE&status_filter=SOME_STRING_VALUE' \
+            --header 'Authorization: Bearer REPLACE_BEARER_TOKEN'
+    post:
+      description: |
+        Can be used by the following roles assigned at the organization scope:
+        - ORG_ADMIN
+      operationId: CockroachCloud_CreateServiceAccountCredential
+      parameters:
+      - description: The ID of the service account to create the credential for.
+        explode: false
+        in: path
+        name: service_account_id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServiceAccountCredentialBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccountCredential'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when a request field is invalid.
+        "401":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the token bearer cannot be authenticated.
+        "403":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema: {}
+          description: Server error
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: An unexpected error response.
+      summary: Create an OAuth credential for a service account
+      tags:
+      - Service Accounts
+      x-badges:
+      - color: red
+        label: LIMITED ACCESS
+      x-codeSamples:
+      - lang: Shell + Curl
+        source: |-
+          curl --request POST \
+            --url https://cockroachlabs.cloud/api/v1/service-accounts/{service_account_id}/credentials \
+            --header 'Authorization: Bearer REPLACE_BEARER_TOKEN' \
+            --json '{"algorithm":"RS256","expires_at":"2023-03-22T20:23:11.285067Z","name":"ci signer","public_key":"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkq...\n-----END PUBLIC KEY-----\n","service_account_id":"abcd1234-abcd-abcd-1234-abcdef123456"}'
+  /api/v1/service-accounts/{service_account_id}/credentials/{credential_id}:
+    delete:
+      description: |
+        Can be used by the following roles assigned at the organization scope:
+        - ORG_ADMIN
+      operationId: CockroachCloud_DeleteServiceAccountCredential
+      parameters:
+      - description: The ID of the service account the credential belongs to.
+        explode: false
+        in: path
+        name: service_account_id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: The ID of the credential to delete.
+        explode: false
+        in: path
+        name: credential_id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccountCredential'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when a request field is invalid.
+        "401":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the token bearer cannot be authenticated.
+        "403":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the user does not have permission to access the
+            resource.
+        "404":
+          content:
+            application/json:
+              schema: {}
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema: {}
+          description: Server error
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+          description: An unexpected error response.
+      summary: Delete a service account's OAuth credential
+      tags:
+      - Service Accounts
+      x-badges:
+      - color: red
+        label: LIMITED ACCESS
+      x-codeSamples:
+      - lang: Shell + Curl
+        source: |-
+          curl --request DELETE \
+            --url https://cockroachlabs.cloud/api/v1/service-accounts/{service_account_id}/credentials/{credential_id} \
+            --header 'Authorization: Bearer REPLACE_BEARER_TOKEN'
   /api/v1/users/persons-by-email:
     get:
       description: |
@@ -11216,6 +11564,7 @@ paths:
         - ORG_ADMIN
         - CLUSTER_ADMIN
         - FOLDER_ADMIN
+        - AUDITOR
       operationId: CockroachCloud_GetPersonUsersByEmail
       parameters:
       - description: an email address is required.
@@ -11721,6 +12070,10 @@ components:
       - AUDIT_LOG_ACTION_CREATE_MIGRATION_ASSISTANT
       - AUDIT_LOG_ACTION_DELETE_MIGRATION_ASSISTANT
       - AUDIT_LOG_ACTION_UPDATE_BACKUP_CONFIGURATION
+      - AUDIT_LOG_ACTION_ADD_DISPOSABLE_EMAIL_OVERRIDE
+      - AUDIT_LOG_ACTION_REMOVE_DISPOSABLE_EMAIL_OVERRIDE
+      - AUDIT_LOG_ACTION_CREATE_SA_CREDENTIAL
+      - AUDIT_LOG_ACTION_DELETE_SA_CREDENTIAL
       type: string
     AuditLogEntry:
       description: |-
@@ -12255,6 +12608,20 @@ components:
       - IS_SET
       - PENDING
       - FAILED
+      type: string
+    ClientCACertUpdateMode.Type:
+      description: |-
+        - REPLACE: REPLACE overwrites all existing certs with the provided cert. This
+        matches the behavior of the SetClientCACert (POST) endpoint. This is the
+        default when update_mode is omitted.
+         - APPEND: APPEND adds the provided cert to the existing cert bundle. This mode
+        enables no-downtime certificate rotation: append the new cert, roll it
+        out across clients, then REPLACE with only the new cert to drop the old
+        one.
+      enum:
+      - REPLACE
+      - APPEND
+      title: 'Defines the mode used for CA certificate updates:'
       type: string
     CloudProvider.Type:
       description: |2-
@@ -12980,6 +13347,46 @@ components:
       - name
       - password
       title: CreateSQLUserRequest
+      type: object
+    CreateServiceAccountCredentialBody:
+      example:
+        algorithm: RS256
+        expires_at: 2023-03-22T20:23:11.285067Z
+        name: ci signer
+        public_key: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkq...
+          -----END PUBLIC KEY-----
+        service_account_id: abcd1234-abcd-abcd-1234-abcdef123456
+      properties:
+        algorithm:
+          $ref: '#/components/schemas/ServiceAccountCredentialAlgorithm.Type'
+        description:
+          description: An optional longer description.
+          type: string
+        expires_at:
+          description: |-
+            Required. When the credential expires; must be in the future. There is no
+            maximum lifetime.
+          example: 2023-03-22T20:23:11.285067Z
+          format: date-time
+          type: string
+        name:
+          description: A human-readable name for the credential.
+          example: ci signer
+          type: string
+        public_key:
+          description: The PEM-encoded public key used to verify signed JWT assertions.
+          example: |
+            -----BEGIN PUBLIC KEY-----
+            MIIBIjANBgkq...
+            -----END PUBLIC KEY-----
+          type: string
+      required:
+      - algorithm
+      - expires_at
+      - name
+      - public_key
       type: object
     CreateServiceAccountRequest:
       example:
@@ -16021,6 +16428,29 @@ components:
       required:
       - users
       type: object
+    ListServiceAccountCredentialsResponse:
+      example:
+        credentials:
+        - algorithm: RS256
+          client_id: crl-sa_abc123
+          created_at: 2022-03-22T20:23:11.285067Z
+          credential_type: JWT_BEARER
+          expires_at: 2023-03-22T20:23:11.285067Z
+          id: 1234abcd-1234-1234-abcd-12345678abcd
+          name: ci signer
+          service_account_id: abcd1234-abcd-abcd-1234-abcdef123456
+        pagination: {}
+      properties:
+        credentials:
+          description: "The service account's credentials, ordered by created_at."
+          items:
+            $ref: '#/components/schemas/ServiceAccountCredential'
+          type: array
+        pagination:
+          $ref: '#/components/schemas/KeysetPaginationResponse'
+      required:
+      - credentials
+      type: object
     ListServiceAccountsResponse:
       example:
         pagination:
@@ -16492,6 +16922,8 @@ components:
       description: |2-
          - FOLDER_ADMIN: Preview: A folder admin role.
          - FOLDER_MOVER: Preview: A folder mover role.
+         - AUDITOR: Limited Access: An auditor role with org-wide, read-only visibility into configuration, identity, authorization, audit logs, and cluster metadata.
+         - CLUSTER_DATA_ACCESSOR: Limited Access: A cluster data accessor role with SQL and data access to clusters (databases, SQL shell, DB Console) without cluster-management privileges.
       enum:
       - BILLING_COORDINATOR
       - ORG_ADMIN
@@ -16505,6 +16937,8 @@ components:
       - METRICS_VIEWER
       - CLUSTER_MONITOR
       - BILLING_VIEWER
+      - AUDITOR
+      - CLUSTER_DATA_ACCESSOR
       type: string
     PatchGroupBody:
       example:
@@ -17940,6 +18374,95 @@ components:
       - roles
       title: ServiceAccount
       type: object
+    ServiceAccountCredential:
+      description: |-
+        ServiceAccountCredential is an OAuth 2.0 jwt-bearer credential a service
+        account uses to obtain short-lived access tokens. CockroachDB Cloud stores
+        only the public key and signature algorithm; it never holds a secret on the
+        customer's behalf.
+      example:
+        algorithm: RS256
+        client_id: crl-sa_abc123
+        created_at: 2022-03-22T20:23:11.285067Z
+        credential_type: JWT_BEARER
+        expires_at: 2023-03-22T20:23:11.285067Z
+        id: 1234abcd-1234-1234-abcd-12345678abcd
+        name: ci signer
+        service_account_id: abcd1234-abcd-abcd-1234-abcdef123456
+      properties:
+        algorithm:
+          $ref: '#/components/schemas/ServiceAccountCredentialAlgorithm.Type'
+        client_id:
+          description: |-
+            The public OAuth client identifier; also the iss and sub a signed assertion
+            must carry.
+          example: crl-sa_abc123
+          type: string
+        created_at:
+          description: When the credential was created.
+          example: 2022-03-22T20:23:11.285067Z
+          format: date-time
+          type: string
+        credential_type:
+          $ref: '#/components/schemas/ServiceAccountCredentialType.Type'
+        description:
+          description: An optional longer description.
+          type: string
+        disabled_at:
+          description: When the credential was disabled; unset if active.
+          format: date-time
+          type: string
+        expires_at:
+          description: |-
+            When the credential expires. Always set; a credential cannot be created
+            without an expiry.
+          example: 2023-03-22T20:23:11.285067Z
+          format: date-time
+          type: string
+        id:
+          description: The unique ID of the credential.
+          example: 1234abcd-1234-1234-abcd-12345678abcd
+          format: uuid
+          type: string
+        name:
+          description: A human-readable name for the credential.
+          example: ci signer
+          type: string
+        service_account_id:
+          description: The ID of the service account the credential belongs to.
+          example: abcd1234-abcd-abcd-1234-abcdef123456
+          format: uuid
+          type: string
+      required:
+      - algorithm
+      - client_id
+      - created_at
+      - credential_type
+      - expires_at
+      - id
+      - name
+      - service_account_id
+      title: ServiceAccountCredential
+      type: object
+    ServiceAccountCredentialAlgorithm.Type:
+      description: |2-
+         - RS256: RS256 (RSASSA-PKCS1-v1_5 using SHA-256).
+         - PS256: PS256 (RSASSA-PSS using SHA-256).
+         - ES256: ES256 (ECDSA using P-256 and SHA-256).
+         - ES384: ES384 (ECDSA using P-384 and SHA-384).
+      enum:
+      - RS256
+      - PS256
+      - ES256
+      - ES384
+      type: string
+    ServiceAccountCredentialType.Type:
+      description: |2-
+         - JWT_BEARER: JWT_BEARER authenticates with a client-held private key via an OAuth 2.0
+        jwt-bearer assertion (RFC 7523).
+      enum:
+      - JWT_BEARER
+      type: string
     SetAWSEndpointConnectionStatus.Type:
       description: |2-
          - AVAILABLE: accept/verify the connection on the service side.
@@ -18109,9 +18632,13 @@ components:
       type: object
     UpdateClientCACertBody:
       example:
+        update_mode: APPEND
         x509_pem_cert: '-----BEGIN CERTIFICATE-----...'
       properties:
+        update_mode:
+          $ref: '#/components/schemas/ClientCACertUpdateMode.Type'
         x509_pem_cert:
+          description: x509_pem_cert is the PEM-encoded X.509 CA certificate to apply.
           type: string
       title: UpdateClientCACertRequest
       type: object
