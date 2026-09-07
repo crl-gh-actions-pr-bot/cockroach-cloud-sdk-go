@@ -38,6 +38,7 @@ type Cluster struct {
 	CustomerCloudAccount *CustomerCloudAccount      `json:"customer_cloud_account,omitempty"`
 	DeleteProtection     *DeleteProtectionStateType `json:"delete_protection,omitempty"`
 	DeletedAt            *time.Time                 `json:"deleted_at,omitempty"`
+	Edition              *EditionType               `json:"edition,omitempty"`
 	EgressTrafficPolicy  *EgressTrafficPolicyType   `json:"egress_traffic_policy,omitempty"`
 	Id                   string                     `json:"id"`
 	// labels are key-value pairs used to organize and categorize resources.
@@ -243,6 +244,20 @@ func (o *Cluster) GetDeletedAt() time.Time {
 // SetDeletedAt gets a reference to the given time.Time and assigns it to the DeletedAt field.
 func (o *Cluster) SetDeletedAt(v time.Time) {
 	o.DeletedAt = &v
+}
+
+// GetEdition returns the Edition field value if set, zero value otherwise.
+func (o *Cluster) GetEdition() EditionType {
+	if o == nil || o.Edition == nil {
+		var ret EditionType
+		return ret
+	}
+	return *o.Edition
+}
+
+// SetEdition gets a reference to the given EditionType and assigns it to the Edition field.
+func (o *Cluster) SetEdition(v EditionType) {
+	o.Edition = &v
 }
 
 // GetEgressTrafficPolicy returns the EgressTrafficPolicy field value if set, zero value otherwise.

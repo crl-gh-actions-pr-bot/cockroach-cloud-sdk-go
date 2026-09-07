@@ -23,6 +23,7 @@ type CreateClusterSpecification struct {
 	CustomerCloudAccount *CustomerCloudAccount                `json:"customer_cloud_account,omitempty"`
 	Dedicated            *DedicatedClusterCreateSpecification `json:"dedicated,omitempty"`
 	DeleteProtection     *DeleteProtectionStateType           `json:"delete_protection,omitempty"`
+	Edition              *EditionType                         `json:"edition,omitempty"`
 	// labels are key-value pairs used to organize and categorize resources.
 	Labels *map[string]string `json:"labels,omitempty"`
 	// Preview: The parent ID is a folder ID. An empty string or \"root\" will create a cluster at the root level.
@@ -80,6 +81,20 @@ func (o *CreateClusterSpecification) GetDeleteProtection() DeleteProtectionState
 // SetDeleteProtection gets a reference to the given DeleteProtectionStateType and assigns it to the DeleteProtection field.
 func (o *CreateClusterSpecification) SetDeleteProtection(v DeleteProtectionStateType) {
 	o.DeleteProtection = &v
+}
+
+// GetEdition returns the Edition field value if set, zero value otherwise.
+func (o *CreateClusterSpecification) GetEdition() EditionType {
+	if o == nil || o.Edition == nil {
+		var ret EditionType
+		return ret
+	}
+	return *o.Edition
+}
+
+// SetEdition gets a reference to the given EditionType and assigns it to the Edition field.
+func (o *CreateClusterSpecification) SetEdition(v EditionType) {
+	o.Edition = &v
 }
 
 // GetLabels returns the Labels field value if set, zero value otherwise.

@@ -12770,6 +12770,8 @@ components:
         deleted_at:
           format: date-time
           type: string
+        edition:
+          $ref: '#/components/schemas/Edition.Type'
         egress_traffic_policy:
           $ref: '#/components/schemas/EgressTrafficPolicy.Type'
         id:
@@ -13182,6 +13184,8 @@ components:
           $ref: '#/components/schemas/DedicatedClusterCreateSpecification'
         delete_protection:
           $ref: '#/components/schemas/DeleteProtectionState.Type'
+        edition:
+          $ref: '#/components/schemas/Edition.Type'
         labels:
           additionalProperties:
             type: string
@@ -13910,6 +13914,22 @@ components:
       - rule
       title: EditEgressRuleResponse
       type: object
+    Edition.Type:
+      description: |-
+        A Continuum edition, which determines the capabilities a cluster's license
+        grants. Editions are available only to organizations enrolled in Continuum,
+        and a request naming an edition from an organization that is not enrolled is
+        rejected. Editions and plans are separate axes, so a cluster reports one or
+        the other, never both.
+
+         - STANDARD: The Standard edition grants the Standard capability set: row-level
+        security, revision-history backups, changefeeds, and export.
+         - MISSION_CRITICAL: The Mission Critical edition grants the Standard capabilities plus
+        physical cluster replication and logical data replication.
+      enum:
+      - STANDARD
+      - MISSION_CRITICAL
+      type: string
     EgressPrivateEndpoint:
       example:
         target_service_type: null

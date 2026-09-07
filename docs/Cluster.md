@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **CustomerCloudAccount** | Pointer to [**CustomerCloudAccount**](CustomerCloudAccount.md) |  | [optional] 
 **DeleteProtection** | Pointer to [**DeleteProtectionStateType**](DeleteProtectionStateType.md) |  | [optional] 
 **DeletedAt** | Pointer to **time.Time** |  | [optional] 
+**Edition** | Pointer to [**EditionType**](EditionType.md) |  | [optional] 
 **EgressTrafficPolicy** | Pointer to [**EgressTrafficPolicyType**](EgressTrafficPolicyType.md) |  | [optional] 
 **Id** | **string** |  | 
 **Labels** | **map[string]string** | labels are key-value pairs used to organize and categorize resources. | 
@@ -179,6 +180,18 @@ GetDeletedAt returns the DeletedAt field if non-nil, zero value otherwise.
 `func (o *Cluster) SetDeletedAt(v time.Time)`
 
 SetDeletedAt sets DeletedAt field to given value.
+
+### GetEdition
+
+`func (o *Cluster) GetEdition() EditionType`
+
+GetEdition returns the Edition field if non-nil, zero value otherwise.
+
+### SetEdition
+
+`func (o *Cluster) SetEdition(v EditionType)`
+
+SetEdition sets Edition field to given value.
 
 ### GetEgressTrafficPolicy
 

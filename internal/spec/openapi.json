@@ -15896,6 +15896,9 @@
             "type": "string",
             "format": "date-time"
           },
+          "edition": {
+            "$ref": "#/components/schemas/Edition.Type"
+          },
           "egress_traffic_policy": {
             "$ref": "#/components/schemas/EgressTrafficPolicy.Type"
           },
@@ -16293,6 +16296,9 @@
           },
           "delete_protection": {
             "$ref": "#/components/schemas/DeleteProtectionState.Type"
+          },
+          "edition": {
+            "$ref": "#/components/schemas/Edition.Type"
           },
           "labels": {
             "description": "labels are key-value pairs used to organize and categorize resources.",
@@ -16983,6 +16989,11 @@
         },
         "required": ["rule"],
         "title": "EditEgressRuleResponse"
+      },
+      "Edition.Type": {
+        "description": "A Continuum edition, which determines the capabilities a cluster's license\ngrants. Editions are available only to organizations enrolled in Continuum,\nand a request naming an edition from an organization that is not enrolled is\nrejected. Editions and plans are separate axes, so a cluster reports one or\nthe other, never both.\n\n - STANDARD: The Standard edition grants the Standard capability set: row-level\nsecurity, revision-history backups, changefeeds, and export.\n - MISSION_CRITICAL: The Mission Critical edition grants the Standard capabilities plus\nphysical cluster replication and logical data replication.",
+        "type": "string",
+        "enum": ["STANDARD", "MISSION_CRITICAL"]
       },
       "EgressPrivateEndpoint": {
         "type": "object",

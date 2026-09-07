@@ -100,6 +100,7 @@ docs/DeleteProtectionStateType.md
 docs/EditDatabaseBody.md
 docs/EditEgressRuleBody.md
 docs/EditEgressRuleResponse.md
+docs/EditionType.md
 docs/EgressPrivateEndpoint.md
 docs/EgressPrivateEndpointDomainNamesStateType.md
 docs/EgressPrivateEndpointStateType.md
@@ -364,6 +365,7 @@ model_delete_protection_state_type.go
 model_edit_database_body.go
 model_edit_egress_rule_body.go
 model_edit_egress_rule_response.go
+model_edition_type.go
 model_egress_private_endpoint.go
 model_egress_private_endpoint_domain_names_state_type.go
 model_egress_private_endpoint_state_type.go
