@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add `UPDATE_MIGRATION_ASSISTANT_CA` audit log action.
 - Add `CREATE_AEGIS_CONNECTOR` audit log action.
 
 ## [9.1.0] - 2026-08-26

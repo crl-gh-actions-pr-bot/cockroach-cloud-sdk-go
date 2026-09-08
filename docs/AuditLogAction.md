@@ -224,6 +224,8 @@
 
 * `CREATE_AEGIS_CONNECTOR` (value: `"AUDIT_LOG_ACTION_CREATE_AEGIS_CONNECTOR"`)
 
+* `UPDATE_MIGRATION_ASSISTANT_CA` (value: `"AUDIT_LOG_ACTION_UPDATE_MIGRATION_ASSISTANT_CA"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
