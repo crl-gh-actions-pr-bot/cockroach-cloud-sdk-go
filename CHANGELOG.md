@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add `CREATE_AEGIS_CONNECTOR` audit log action.
 
+### Removed
+
+- Remove unused API categories from the OpenAPI spec: SQL Privilege Grants, Cluster SSO, OpenID Connect Configuration, PCI, Plan Migrations, and Multifactor Authentication.
+
 ## [9.1.0] - 2026-08-26
 
 ### Added

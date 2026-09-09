@@ -21331,9 +21331,6 @@
       "name": "SQL Users"
     },
     {
-      "name": "SQL Privilege Grants"
-    },
-    {
       "name": "Databases"
     },
     {
@@ -21341,9 +21338,6 @@
     },
     {
       "name": "Client CA Certificates"
-    },
-    {
-      "name": "Cluster SSO"
     },
     {
       "name": "Log Export"
@@ -21388,28 +21382,16 @@
       "name": "JWT Issuers"
     },
     {
-      "name": "OpenID Connect Configuration"
-    },
-    {
       "name": "Private Endpoint Services"
     },
     {
-      "name": "PCI"
-    },
-    {
       "name": "Physical Cluster Replication"
-    },
-    {
-      "name": "Plan Migrations"
     },
     {
       "name": "Backup/Restore"
     },
     {
       "name": "Egress Private Endpoints"
-    },
-    {
-      "name": "Multifactor Authentication"
     },
     {
       "name": "Runtime Scanning"
