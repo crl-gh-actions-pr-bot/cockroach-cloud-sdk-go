@@ -16656,8 +16656,9 @@
         "title": "CreateUserResponse"
       },
       "Currency.Type": {
+        "description": " - COCKROACH_CREDITS: COCKROACH_CREDITS is the credit balance of an organization billed under\nCockroach Continuum pricing. Organizations on other plans keep receiving\nCRDB_CLOUD_CREDITS for the equivalent balance.",
         "type": "string",
-        "enum": ["USD", "CRDB_CLOUD_CREDITS"]
+        "enum": ["USD", "CRDB_CLOUD_CREDITS", "COCKROACH_CREDITS"]
       },
       "CurrencyAmount": {
         "type": "object",
