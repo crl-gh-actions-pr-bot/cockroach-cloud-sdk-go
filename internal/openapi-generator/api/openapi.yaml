@@ -20,11 +20,9 @@ tags:
 - name: Clusters
 - name: Cluster Disruption
 - name: SQL Users
-- name: SQL Privilege Grants
 - name: Databases
 - name: Customer-managed Encryption Keys
 - name: Client CA Certificates
-- name: Cluster SSO
 - name: Log Export
 - name: Metric Export
 - name: Audit Logs
@@ -39,14 +37,10 @@ tags:
 - name: Folders
 - name: Version Deferral
 - name: JWT Issuers
-- name: OpenID Connect Configuration
 - name: Private Endpoint Services
-- name: PCI
 - name: Physical Cluster Replication
-- name: Plan Migrations
 - name: Backup/Restore
 - name: Egress Private Endpoints
-- name: Multifactor Authentication
 - name: Runtime Scanning
 paths:
   /api/scim/v2/Groups:
