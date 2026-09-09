@@ -22,19 +22,21 @@ import (
 	"fmt"
 )
 
-// CurrencyType the model 'CurrencyType'.
+// CurrencyType  - COCKROACH_CREDITS: COCKROACH_CREDITS is the credit balance of an organization billed under Cockroach Continuum pricing. Organizations on other plans keep receiving CRDB_CLOUD_CREDITS for the equivalent balance.
 type CurrencyType string
 
 // List of Currency.Type.
 const (
 	CURRENCYTYPE_USD                CurrencyType = "USD"
 	CURRENCYTYPE_CRDB_CLOUD_CREDITS CurrencyType = "CRDB_CLOUD_CREDITS"
+	CURRENCYTYPE_COCKROACH_CREDITS  CurrencyType = "COCKROACH_CREDITS"
 )
 
 // All allowed values of CurrencyType enum.
 var AllowedCurrencyTypeEnumValues = []CurrencyType{
 	"USD",
 	"CRDB_CLOUD_CREDITS",
+	"COCKROACH_CREDITS",
 }
 
 // NewCurrencyTypeFromValue returns a pointer to a valid CurrencyType
